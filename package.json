@@ -4,8 +4,7 @@
   "description": "project for innowise",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --mode=development",
+    "build": "webpack --mode=development",
     "prod": "webpack --mode=production",
     "eslint": "npx eslint ./",
     "prettier": "npx prettier --write ."
@@ -46,6 +45,8 @@
     "typescript": "^4.4.4",
     "webpack": "^5.60.0",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.4.0"
+    "webpack-dev-middleware": "^5.2.1",
+    "webpack-dev-server": "^4.4.0",
+    "webpack-hot-middleware": "^2.25.1"
   }
 }

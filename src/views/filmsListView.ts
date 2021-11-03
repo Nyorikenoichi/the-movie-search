@@ -12,7 +12,10 @@ export default class FilmsListView extends View {
     const root = document.querySelector('#root');
     root.innerHTML = null;
     const filmsList = document.createElement('ul');
-    this.controller.films.forEach((item) => filmsList.innerHTML += `<li>${item.getTitle()}</li>`);
+    console.log(this.controller.films);
+    this.controller.films.forEach((item) => {
+      filmsList.innerHTML += `<li>${item.getTitle()}</li>`;
+    });
     root.appendChild(filmsList);
   }
 }

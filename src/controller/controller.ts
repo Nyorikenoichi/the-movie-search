@@ -1,8 +1,6 @@
 import FilmModel from '../models/filmModel';
 import FilmsService from '../core/services/filmsService';
 import Router from '../core/router';
-import FavoritesView from '../views/favoritesView';
-import FilmsListView from '../views/filmsListView';
 
 export default class Controller {
   public films: FilmModel[];
@@ -21,7 +19,7 @@ export default class Controller {
     this.currentPage = 1;
     this.service = new FilmsService();
     this.router = router;
-    this.addFilms();
+    this.addFilms().then();
   }
 
   public async addFilms(): Promise<void> {
@@ -30,11 +28,11 @@ export default class Controller {
     this.router.handleHash();
   }
 
-  public addToFavorites(filmToAdd: FilmModel): void{
+  public addToFavorites(filmToAdd: FilmModel): void {
     this.favorites = this.favorites.concat(filmToAdd);
   }
 
-  public removeFromFavorites(film: FilmModel): void{
+  public removeFromFavorites(film: FilmModel): void {
     this.favorites.splice(this.favorites.indexOf(film), 1);
   }
 }

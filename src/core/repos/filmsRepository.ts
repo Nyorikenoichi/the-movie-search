@@ -6,7 +6,8 @@ export default class FilmsRepository extends Repository {
     return `https://www.omdbapi.com/?s=dream&apikey=9b67fc54&page=${page}`;
   }
 
-  public async getData(page: number): Promise<{ error?: string, Search?: Film[] }> {
+  // eslint-disable-next-line consistent-return
+  public async getData(page: number): Promise<{ error?: string; Search?: Film[] }> {
     try {
       const response = await fetch(this.getUrlPage(page));
       return await response.json();

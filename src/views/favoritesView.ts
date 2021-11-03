@@ -12,7 +12,9 @@ export default class FavoritesView extends View {
     const root = document.querySelector('#root');
     root.innerHTML = null;
     const favoritesList = document.createElement('ul');
-    this.controller.favorites.forEach((item) => favoritesList.innerHTML += `<li>${item.getTitle()}</li>`);
+    this.controller.favorites.forEach((item) => {
+      favoritesList.innerHTML += `<li>${item.getTitle()}</li>`;
+    });
     root.appendChild(favoritesList);
   }
 }

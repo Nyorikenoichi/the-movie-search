@@ -15,6 +15,7 @@ export default class FilmsService extends Service {
     if (data.error) {
       // will modify this later
     }
-    return data.Search.map( (item) => new FilmModel(item.Title, item.Year, item.ImdbID, item.Poster));
+    // eslint-disable-next-line max-len
+    return data.Search.map((item) => new FilmModel(item.Title, item.Year, item.ImdbID, item.Poster));
   }
 }
