@@ -1,12 +1,12 @@
-import "./style.css";
-import Controller from "./components/controller";
-import View from "./components/view";
+import './style.scss';
+import Controller from './controller/controller';
+import FilmsListView from './views/filmsListView';
+import FavoritesView from './views/favoritesView';
+import Router from "./core/router";
 
-function init(initURL) : void{
-  let controller = new Controller();
-  controller.getFilms(initURL)
-    .then( () => console.log(controller.films));
-  let view = new View();
-}
+const filmListView = new FilmsListView();
+const favoritesView = new FavoritesView();
+const router = new Router(filmListView, favoritesView);
+const controller = new Controller(router);
 
-init("https://www.omdbapi.com/?s=dream&page=2&apikey=9b67fc54");
+setTimeout(() => controller.addToFavorites(controller.films[0]), 3000);

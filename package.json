@@ -5,24 +5,47 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode=development",
-    "eslint": "eslint",
-    "prettier": "prettier"
+    "start": "webpack --mode=development",
+    "prod": "webpack --mode=production",
+    "eslint": "npx eslint ./",
+    "prettier": "npx prettier --write ."
   },
-  "author": "",
+  "lint-staged": {
+    "*.ts": [
+      "npm run eslint"
+    ],
+    "*.{ts,html,css,json,md}": [
+      "npx prettier --write ."
+    ]
+  },
+  "author": "Maksim Maltcev",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nyorikenoichi/the-movie-search.git"
+  },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.2.0",
-    "@typescript-eslint/parser": "^5.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.0",
-    "eslint": "^8.1.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.1",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-webpack-plugin": "^3.0.1",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
-    "pretier": "0.0.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "node-sass": "^6.0.1",
+    "prettier": "^2.4.1",
+    "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.2.6",
     "typescript": "^4.4.4",
     "webpack": "^5.60.0",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
   }
 }
