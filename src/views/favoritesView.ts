@@ -1,20 +1,23 @@
+/* eslint-disable no-param-reassign */
 import View from '../core/view';
 import Controller from '../controller/controller';
+import FilmListComponent from '../core/components/filmListComponent';
 
 export default class FavoritesView extends View {
   protected controller: Controller;
 
-  setController(controller: Controller) {
-    super.setController(controller);
+  public render(root: Element): void {
+    root.innerHTML = '';
+
+    const favoritesTitle = document.createElement('h2');
+    favoritesTitle.innerText = 'Favorites:';
+    const favoritesList = FilmListComponent.render(this.controller.favorites, this.controller);
+
+    root.appendChild(favoritesTitle);
+    root.appendChild(favoritesList);
   }
 
-  public render(): void {
-    const root = document.querySelector('#root');
-    root.innerHTML = null;
-    const favoritesList = document.createElement('ul');
-    this.controller.favorites.forEach((item) => {
-      favoritesList.innerHTML += `<li>${item.getTitle()}</li>`;
-    });
-    root.appendChild(favoritesList);
+  public hide(root: Element): void {
+    root.innerHTML = '';
   }
 }

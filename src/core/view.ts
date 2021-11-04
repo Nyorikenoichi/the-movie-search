@@ -11,5 +11,5 @@ export default abstract class View {
     this.controller = controller;
   }
 
-  abstract render(): void;
+  abstract render(root: Element): void;
 }

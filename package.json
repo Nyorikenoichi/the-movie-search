@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --mode=development",
     "prod": "webpack --mode=production",
+    "start": "webpack serve --mode=development",
     "eslint": "npx eslint ./",
     "prettier": "npx prettier --write ."
   },

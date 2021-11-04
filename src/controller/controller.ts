@@ -11,28 +11,39 @@ export default class Controller {
 
   private router: Router;
 
-  private currentPage: number;
+  private currentFilmsPage: number;
+
+  private currentSearchRequest: string = 'dream';
 
   constructor(router: Router) {
     this.films = [];
     this.favorites = [];
-    this.currentPage = 1;
+    this.currentFilmsPage = 1;
     this.service = new FilmsService();
     this.router = router;
-    this.addFilms().then();
+    this.addFilms();
+  }
+
+  public setSearchRequest(searchRequest: string): void {
+    this.currentSearchRequest = searchRequest;
+    this.currentFilmsPage = 1;
+    this.films = [];
+    this.addFilms();
   }
 
   public async addFilms(): Promise<void> {
-    this.films = this.films.concat(await this.service.getData(this.currentPage));
-    this.currentPage += 1;
+    this.films = this.films.concat(await this.service.getData(this.currentSearchRequest, this.currentFilmsPage));
+    this.currentFilmsPage += 1;
     this.router.handleHash();
   }
 
   public addToFavorites(filmToAdd: FilmModel): void {
-    this.favorites = this.favorites.concat(filmToAdd);
+    this.favorites = [...this.favorites, filmToAdd];
   }
 
   public removeFromFavorites(film: FilmModel): void {
-    this.favorites.splice(this.favorites.indexOf(film), 1);
+    this.favorites = this.favorites.filter((item) =>
+      item.getTitle() !== film.getTitle() && item.getYear() !== film.getYear());
+
   }
 }

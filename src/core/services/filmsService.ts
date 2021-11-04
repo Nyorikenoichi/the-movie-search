@@ -10,8 +10,8 @@ export default class FilmsService extends Service {
     this.repository = new FilmsRepository();
   }
 
-  public async getData(page: number): Promise<FilmModel[]> {
-    const data = await this.repository.getData(page);
+  public async getData(searchRequest: string, page: number): Promise<FilmModel[]> {
+    const data = await this.repository.getData(searchRequest, page);
     if (data.error) {
       // will modify this later
     }
