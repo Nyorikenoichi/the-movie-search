@@ -1,21 +1,23 @@
-import FilmsRepository from '../repos/filmsRepository';
 import Service from './service';
 import FilmModel from '../../models/filmModel';
+import Repository from '../repos/repository';
 
 export default class FilmsService extends Service {
-  protected repository: FilmsRepository;
-
-  constructor() {
+  constructor(repository: Repository) {
     super();
-    this.repository = new FilmsRepository();
+    this.repository = repository;
   }
 
   public async getData(searchRequest: string, page: number): Promise<FilmModel[]> {
     const data = await this.repository.getData(searchRequest, page);
     if (data.error) {
-      // will modify this later
+      //
     }
-    // eslint-disable-next-line max-len
-    return data.Search.map((item) => new FilmModel(item.Title, item.Year, item.ImdbID, item.Poster));
+    return data.Search.map((item) => new FilmModel(
+      item.Title,
+      item.Year,
+      item.imdbID,
+      item.Poster,
+    ));
   }
 }

@@ -1,32 +1,34 @@
 import FilmModel from '../../models/filmModel';
-import Controller from '../../controller/controller';
+import FilmsManagement from '../interfaces/filmsManagement';
 
 export default class FilmListComponent {
-  public static render(filmsList: FilmModel[], controller: Controller): HTMLUListElement {
-    const filmsListComponent = document.createElement('ul');
-    filmsList.forEach((film) => {
-      const li = document.createElement('li');
-      const addToFavoritesButton = document.createElement('button');
+  public static render(filmsList: FilmModel[], filmsManagement: FilmsManagement) {
+    const filmsListComponent: HTMLElement = document.createElement('ul');
 
-      addToFavoritesButton.innerText = controller.favorites.some((item: FilmModel) =>
-        item.getTitle() === film.getTitle() && item.getYear() === film.getYear()) ? 'remove' : 'add';
+    filmsList.forEach((film) => {
+      const listElement: HTMLElement = document.createElement('li');
+      const addToFavoritesButton: HTMLElement = document.createElement('button');
+
+      if (filmsManagement.getFavorites().some((item) => item.getImdbID() === film.getImdbID())) {
+        addToFavoritesButton.textContent = 'remove';
+      } else {
+        addToFavoritesButton.textContent = 'add';
+      }
 
       addToFavoritesButton.addEventListener('mousedown', (event) => {
-        if (controller.favorites.some((item: FilmModel) =>
-          item.getTitle() === film.getTitle() && item.getYear() === film.getYear())) {
-          controller.removeFromFavorites(film);
-          addToFavoritesButton.innerText = 'add';
-        } else {
-          controller.addToFavorites(film);
-          addToFavoritesButton.innerText = 'remove';
-        }
-        console.log(controller.favorites);
         event.preventDefault();
+        if (filmsManagement.getFavorites().some((item) => item.getImdbID() === film.getImdbID())) {
+          filmsManagement.removeFromFavorites(film);
+          addToFavoritesButton.textContent = 'add';
+        } else {
+          filmsManagement.addToFavorites(film);
+          addToFavoritesButton.textContent = 'remove';
+        }
       });
 
-      li.appendChild(document.createTextNode(film.getTitle()));
-      li.appendChild(addToFavoritesButton);
-      filmsListComponent.appendChild(li);
+      listElement.append(document.createTextNode(film.getTitle()));
+      listElement.append(addToFavoritesButton);
+      filmsListComponent.append(listElement);
     });
     return filmsListComponent;
   }

@@ -1,15 +1,13 @@
-import Controller from '../controller/controller';
+import FilmsManagement from './interfaces/filmsManagement';
 
 export default abstract class View {
-  protected controller: Controller;
+  protected root: HTMLElement;
 
-  constructor() {
-    this.controller = null;
+  constructor(root: HTMLElement) {
+    this.root = root;
   }
 
-  public setController(controller: Controller): void {
-    this.controller = controller;
-  }
+  public abstract hide(): void;
 
-  abstract render(root: Element): void;
+  public abstract render(filmsManagement: FilmsManagement): void;
 }

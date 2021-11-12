@@ -1,25 +1,24 @@
-import Controller from '../../controller/controller';
-
 export default class SearchLineComponent {
-  static render(root: Element, controller: Controller): void {
+  static render(setSearchRequest: Function): HTMLElement {
     const form = document.createElement('form');
     const search = document.createElement('input');
     const submit = document.createElement('input');
 
     search.setAttribute('type', 'search');
     search.setAttribute('id', 'search');
+    search.setAttribute('name', 'searchInput');
     submit.setAttribute('type', 'submit');
     submit.setAttribute('value', 'send request');
 
-    form.appendChild(search);
-    form.appendChild(submit);
+    form.append(search);
+    form.append(submit);
 
-    form.addEventListener('submit', (event) => {
-      const searchRequest: string = root.querySelector('input').value;
-      controller.setSearchRequest(searchRequest);
+    form.addEventListener('submit', (event: Event) => {
       event.preventDefault();
+      const searchRequest: string = event.target['searchInput'].value;
+      setSearchRequest(searchRequest);
     });
 
-    root.appendChild(form);
+    return form;
   }
 }
