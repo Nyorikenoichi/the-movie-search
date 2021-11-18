@@ -1,6 +1,4 @@
-import FilmsManagement from './interfaces/filmsManagement';
-
-export default abstract class View {
+export default abstract class View<T extends Object> {
   protected root: HTMLElement;
 
   constructor(root: HTMLElement) {
@@ -9,5 +7,5 @@ export default abstract class View {
 
   public abstract hide(): void;
 
-  public abstract render(filmsManagement: FilmsManagement): void;
+  public abstract render(args: T): void;
 }

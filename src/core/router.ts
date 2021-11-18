@@ -4,6 +4,8 @@ import UrlHash from './constants/UrlHash';
 import SearchLineComponent from './components/searchLineComponent';
 import Controller from '../controller/controller';
 import FilmsManagement from './interfaces/filmsManagement';
+import FilmModel from '../models/filmModel';
+import ResponseErrorView from '../views/responseErrorView';
 
 export default class Router {
   private controller: Controller;
@@ -12,59 +14,62 @@ export default class Router {
 
   private favoritesView: FavoritesView;
 
+  private responseErrorView: ResponseErrorView;
+
   private root: HTMLElement;
 
-  constructor(filmsListView: FilmsListView, favoritesView: FavoritesView, root: HTMLElement) {
+  constructor(
+    filmsListView: FilmsListView,
+    favoritesView: FavoritesView,
+    responseErrorView: ResponseErrorView,
+    root: HTMLElement,
+  ) {
     this.root = root;
     this.filmsListView = filmsListView;
     this.favoritesView = favoritesView;
-    window.addEventListener('hashchange', this.handleHash.bind(this));
+    this.responseErrorView = responseErrorView;
   }
 
   public setController(controller: Controller) {
     this.controller = controller;
   }
 
-  public handleHash(): void {
-    const hash = window.location.hash.slice(1) as UrlHash;
-    const filmsManagement: FilmsManagement = {
-      addToFavorites: this.controller.addToFavorites.bind(this.controller),
-      removeFromFavorites: this.controller.removeFromFavorites.bind(this.controller),
-      getFavorites: this.controller.getFavorites.bind(this.controller),
-      addFilms: this.controller.addFilms.bind(this.controller),
-      getFilms: this.controller.getFilms.bind(this.controller),
-    };
+  public static getHash(): string {
+    return window.location.hash.slice(1) as UrlHash;
+  }
 
-    if (hash === UrlHash.main) {
-      this.filmsListView.render(filmsManagement);
-      this.favoritesView.hide();
-      return;
-    }
-    if (hash === UrlHash.favorites) {
-      this.favoritesView.render(filmsManagement);
-      // return;
-    }
-    // this.errorView.render()
+  public renderMainPage(films: FilmModel[], filmsManagement: FilmsManagement) {
+    this.filmsListView.render({ films, filmsManagement });
+    this.favoritesView.hide();
+    this.responseErrorView.hide();
+  }
+
+  public renderResponseError(error: string) {
+    this.responseErrorView.render({ error });
+  }
+
+  public renderFavorites(films: FilmModel[], filmsManagement: FilmsManagement) {
+    this.favoritesView.render({ films, filmsManagement });
   }
 
   public renderStaticComponents() {
     const searchDiv: HTMLElement = document.createElement('div');
-    const errorDiv: HTMLElement = document.createElement('div');
+    const responseErrorDiv: HTMLElement = document.createElement('div');
     const filmsListDiv: HTMLElement = document.createElement('div');
     const favoritesDiv: HTMLElement = document.createElement('div');
 
     searchDiv.setAttribute('id', 'searchDiv');
-    errorDiv.setAttribute('id', 'errorDiv');
+    responseErrorDiv.setAttribute('id', 'responseErrorDiv');
     filmsListDiv.setAttribute('id', 'filmsListDiv');
     favoritesDiv.setAttribute('id', 'favoritesDiv');
 
     this.root.appendChild(searchDiv);
-    this.root.appendChild(errorDiv);
+    this.root.appendChild(responseErrorDiv);
     this.root.appendChild(filmsListDiv);
     this.root.appendChild(favoritesDiv);
 
-    const setSearchRequest: Function = this.controller.setSearchRequest.bind(this.controller);
-    const searchLine: HTMLElement = SearchLineComponent.render(setSearchRequest);
+    const setSearchRequest = this.controller.setSearchRequest.bind(this.controller);
+    const searchLine: HTMLElement = new SearchLineComponent().render({ setSearchRequest });
     searchDiv.append(searchLine);
   }
 }

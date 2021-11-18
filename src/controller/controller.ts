@@ -1,18 +1,16 @@
 import FilmModel from '../models/filmModel';
 import Router from '../core/router';
 import Service from '../core/services/service';
-import Repository from '../core/repos/repository';
-import FilmsService from '../core/services/filmsService';
-import FilmsRepository from '../core/repos/filmsRepository';
+import FilmsManagement from '../core/interfaces/filmsManagement';
+import UrlHash from '../core/constants/UrlHash';
+import { eraseFilm, findFilm } from '../core/helpers/films';
 
 export default class Controller {
   private films: FilmModel[];
 
-  private favorites: FilmModel[];
+  public favorites: FilmModel[];
 
   private service: Service;
-
-  private repository: Repository;
 
   private router: Router;
 
@@ -20,31 +18,39 @@ export default class Controller {
 
   private currentSearchRequest: string;
 
-  constructor(router: Router) {
-    this.init(router);
+  constructor(router: Router, service: Service) {
+    this.init(router, service);
   }
 
-  private async init(router: Router): Promise<void> {
+  private async init(router: Router, service: Service): Promise<void> {
     this.films = [];
-    this.favorites = [];
     this.currentFilmsPage = 1;
     this.currentSearchRequest = 'dream';
 
-    this.repository = new FilmsRepository();
-    this.service = new FilmsService(this.repository);
+    this.service = service;
+    this.favorites = this.service.getFavorites();
+
     this.router = router;
     this.router.setController(this);
     this.router.renderStaticComponents();
-
+    window.addEventListener('hashchange', this.handleHash.bind(this));
     await this.addFilms();
   }
 
-  public getFilms(): FilmModel[] {
-    return this.films;
-  }
+  public handleHash(): void {
+    const hash = Router.getHash();
+    const filmsManagement: FilmsManagement = {
+      addToFavorites: this.addToFavorites.bind(this),
+      removeFromFavorites: this.removeFromFavorites.bind(this),
+      addFilms: this.addFilms.bind(this),
+      findInFavorites: this.findInFavorites.bind(this),
+    };
 
-  public getFavorites(): FilmModel[] {
-    return this.favorites;
+    if (hash === UrlHash.main) {
+      this.router.renderMainPage(this.films, filmsManagement);
+    } else if (hash === UrlHash.favorites) {
+      this.router.renderFavorites(this.favorites, filmsManagement);
+    }
   }
 
   public async setSearchRequest(searchRequest: string): Promise<void> {
@@ -55,17 +61,27 @@ export default class Controller {
   }
 
   public async addFilms(): Promise<void> {
-    const filmsToAdd = await this.service.getData(this.currentSearchRequest, this.currentFilmsPage);
-    this.films = this.films.concat(filmsToAdd);
-    this.currentFilmsPage += 1;
-    this.router.handleHash();
+    const filmsToAdd = await this.service.getFilmsPage(this.currentSearchRequest, this.currentFilmsPage);
+    if (filmsToAdd.Error) {
+      this.router.renderResponseError(filmsToAdd.Error);
+    } else {
+      this.films = this.films.concat(filmsToAdd.Search as FilmModel[]);
+      this.currentFilmsPage += 1;
+      this.handleHash();
+    }
   }
 
-  public addToFavorites(filmToAdd: FilmModel): void {
-    this.favorites = [...this.favorites, filmToAdd];
+  public addToFavorites(film: FilmModel): void {
+    this.service.saveFilm(film);
+    this.favorites = [...this.favorites, film];
   }
 
   public removeFromFavorites(film: FilmModel): void {
-    this.favorites = this.favorites.filter((item) => item.getImdbID() !== film.getImdbID());
+    this.service.removeFilm(film);
+    this.favorites = eraseFilm(film, this.favorites);
+  }
+
+  public findInFavorites(film: FilmModel): boolean {
+    return findFilm(film, this.favorites);
   }
 }
