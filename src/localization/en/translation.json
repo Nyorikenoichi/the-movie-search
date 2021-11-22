@@ -1,6 +1,6 @@
 {
-  "keySearch": "Search",
-  "keyFavorites": "Favorites:",
-  "keyAdd": "Add",
-  "keyRemove": "Remove"
+  "Search": "Search",
+  "Favorites": "Favorites:",
+  "Add": "Add",
+  "Remove": "Remove"
 }

@@ -11,19 +11,19 @@ export default class FilmListComponent extends Component<{ films: FilmModel[], f
       const addToFavoritesButton: HTMLElement = document.createElement('button');
 
       if (filmsManagement.findInFavorites(film)) {
-        addToFavoritesButton.textContent = i18next.t('keyRemove');
+        addToFavoritesButton.textContent = i18next.t('Remove');
       } else {
-        addToFavoritesButton.textContent = i18next.t('keyAdd');
+        addToFavoritesButton.textContent = i18next.t('Add');
       }
 
       addToFavoritesButton.addEventListener('mousedown', (event) => {
         event.preventDefault();
         if (filmsManagement.findInFavorites(film)) {
           filmsManagement.removeFromFavorites(film);
-          addToFavoritesButton.textContent = i18next.t('keyAdd');
+          addToFavoritesButton.textContent = i18next.t('Add');
         } else {
           filmsManagement.addToFavorites(film);
-          addToFavoritesButton.textContent = i18next.t('keyRemove');
+          addToFavoritesButton.textContent = i18next.t('Remove');
         }
       });
 

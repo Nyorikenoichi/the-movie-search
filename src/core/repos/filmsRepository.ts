@@ -1,9 +1,10 @@
 import Repository from './repository';
 import GetFilmsResults from '../interfaces/GetFilmsResults';
 import FilmModel from '../../models/filmModel';
+import Film from '../interfaces/film';
 
 export default class FilmsRepository extends Repository {
-  public async getFilmsPage(searchRequest: string, page: number): Promise<GetFilmsResults> {
+  public async getFilmsPage(searchRequest: string, page: number): Promise<GetFilmsResults<Film[]>> {
     try {
       const response = await fetch(Repository.Urls.MainUrl(searchRequest, page));
       return await response.json();
@@ -19,15 +20,15 @@ export default class FilmsRepository extends Repository {
     }
   }
 
-  public getFavorites(): FilmModel[] {
+  public async getFavorites(): Promise<FilmModel[]> {
     return this.storage.getFavorites();
   }
 
-  public saveFilm(film: FilmModel) {
-    this.storage.saveFilm(film);
+  public saveFilm(film: FilmModel): Promise<void> {
+    return this.storage.saveFilm(film);
   }
 
-  public removeFilm(film: FilmModel) {
-    this.storage.removeFilm(film);
+  public removeFilm(film: FilmModel): Promise<void> {
+    return this.storage.removeFilm(film);
   }
 }

@@ -3,7 +3,7 @@ import Router from '../core/router';
 import Service from '../core/services/service';
 import FilmsManagement from '../core/interfaces/filmsManagement';
 import UrlHash from '../core/constants/UrlHash';
-import { eraseFilm, findFilm } from '../core/helpers/films';
+import { deleteFilm, findFilm } from '../core/helpers/films';
 
 export default class Controller {
   private films: FilmModel[];
@@ -28,12 +28,13 @@ export default class Controller {
     this.currentSearchRequest = 'dream';
 
     this.service = service;
-    this.favorites = this.service.getFavorites();
+    this.favorites = await this.service.getFavorites();
 
     this.router = router;
     this.router.setController(this);
     this.router.renderStaticComponents();
-    window.addEventListener('hashchange', this.handleHash.bind(this));
+    this.router.createHashChangeListener();
+
     await this.addFilms();
   }
 
@@ -50,6 +51,16 @@ export default class Controller {
       this.router.renderMainPage(this.films, filmsManagement);
     } else if (hash === UrlHash.favorites) {
       this.router.renderFavorites(this.favorites, filmsManagement);
+    }
+  }
+
+  public switchFavorites(): void{
+    const hash = Router.getHash();
+    const urlWithoutHash = Router.getUrlWithoutHash();
+    if (hash === UrlHash.main) {
+      window.location.replace(`${urlWithoutHash}#${UrlHash.favorites}`);
+    } else {
+      window.location.replace(`${urlWithoutHash}#${UrlHash.main}`);
     }
   }
 
@@ -71,14 +82,14 @@ export default class Controller {
     }
   }
 
-  public addToFavorites(film: FilmModel): void {
-    this.service.saveFilm(film);
+  public async addToFavorites(film: FilmModel): Promise<void> {
+    await this.service.saveFilm(film);
     this.favorites = [...this.favorites, film];
   }
 
-  public removeFromFavorites(film: FilmModel): void {
-    this.service.removeFilm(film);
-    this.favorites = eraseFilm(film, this.favorites);
+  public async removeFromFavorites(film: FilmModel): Promise<void> {
+    await this.service.removeFilm(film);
+    this.favorites = deleteFilm(film, this.favorites);
   }
 
   public findInFavorites(film: FilmModel): boolean {

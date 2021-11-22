@@ -8,10 +8,12 @@ export default class FilmsService extends Service {
     this.repository = repository;
   }
 
-  public async getFilmsPage(searchRequest: string, page: number): Promise<GetFilmsResults> {
+  public async getFilmsPage(searchRequest: string, page: number): Promise<GetFilmsResults<FilmModel[]>> {
     const data = await this.repository.getFilmsPage(searchRequest, page);
     if (data.Error) {
-      return data;
+      return {
+        Error: data.Error,
+      };
     }
     return {
       Search: data.Search.map((item) => new FilmModel(
@@ -23,15 +25,15 @@ export default class FilmsService extends Service {
     };
   }
 
-  public getFavorites(): FilmModel[] {
+  public getFavorites(): Promise<FilmModel[]> {
     return this.repository.getFavorites();
   }
 
-  public saveFilm(film: FilmModel) {
-    this.repository.saveFilm(film);
+  public saveFilm(film: FilmModel): Promise<void> {
+    return this.repository.saveFilm(film);
   }
 
-  public removeFilm(film: FilmModel) {
-    this.repository.removeFilm(film);
+  public removeFilm(film: FilmModel): Promise<void> {
+    return this.repository.removeFilm(film);
   }
 }

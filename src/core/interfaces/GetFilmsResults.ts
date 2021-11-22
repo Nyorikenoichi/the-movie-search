@@ -1,9 +1,7 @@
 import ResponseError from './responseError';
-import Film from './film';
-import FilmModel from '../../models/filmModel';
 
-interface GetFilmsResults extends Partial<ResponseError> {
-  Search?: Film[] | FilmModel[];
+interface GetFilmsResults<T extends Object[]> extends Partial<ResponseError> {
+  Search?: T;
 }
 
 export default GetFilmsResults;

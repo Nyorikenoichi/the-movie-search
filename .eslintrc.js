@@ -12,7 +12,16 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   rules: {
+    'max-len': ['error', { 'code': 120 }],
     semi: ['error', 'always'],
     quotes: ['error', 'single'],
-  }
+  },
+  overrides: [
+    {
+      files: ["*.ts"],
+      rules: {
+        "class-methods-use-this": "off"
+      }
+    }
+  ]
 };

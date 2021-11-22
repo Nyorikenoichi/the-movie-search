@@ -11,13 +11,14 @@ export default class SearchLineComponent extends Component<{ setSearchRequest: (
     search.setAttribute('id', 'search');
     search.setAttribute('name', 'searchInput');
     submit.setAttribute('type', 'submit');
-    submit.setAttribute('value', i18next.t('keySearch'));
+    submit.setAttribute('value', i18next.t('Search'));
 
     form.append(search);
     form.append(submit);
 
     form.addEventListener('submit', (event: Event) => {
       event.preventDefault();
+      // eslint-disable-next-line @typescript-eslint/dot-notation
       const searchRequest: string = event.target['searchInput'].value;
       setSearchRequest(searchRequest);
     });
