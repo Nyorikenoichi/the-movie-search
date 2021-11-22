@@ -5,36 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154ebf74-2b4c-4c71-a8b2-acfb77888ecd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/core/constants/SectionID.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/storages/localStorage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/components/filmListComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/filmListComponent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/components/searchLineComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/searchLineComponent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/constants/Divs.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/helpers/films.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/helpers/films.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/interfaces/GetFilmsResults.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/interfaces/GetFilmsResults.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/repos/filmsRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/repos/filmsRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/repos/repository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/repos/repository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/filmsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/filmsService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/storages/filmsLocalStorage.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/storages/storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/storages/storage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/view.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/view.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/localization/en/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/localization/en/translation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/favoritesView.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/favoritesView.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/filmsListView.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/filmsListView.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/responseErrorView.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/responseErrorView.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +105,7 @@
       <workItem from="1637597378319" duration="1841000" />
       <workItem from="1637599387915" duration="406000" />
       <workItem from="1637606773303" duration="1037000" />
+      <workItem from="1637608997269" duration="336000" />
     </task>
     <servers />
   </component>
