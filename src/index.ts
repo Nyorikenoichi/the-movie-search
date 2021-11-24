@@ -15,7 +15,12 @@ initI18next().then(() => {
   const filmsListView = new FilmsListView(root);
   const favoritesView = new FavoritesView(root);
   const responseErrorView = new ResponseErrorView(root);
-  const router = new Router(filmsListView, favoritesView, responseErrorView, root);
+  const router = new Router(
+    filmsListView,
+    favoritesView,
+    responseErrorView,
+    root,
+  );
 
   const storage = new FilmsLocalStorage();
   const repository = new FilmsRepository();
@@ -23,6 +28,6 @@ initI18next().then(() => {
   const service = new FilmsService();
   service.setRepository(repository);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const controller = new Controller(router, service);
+  // eslint-disable-next-line no-new
+  new Controller(router, service);
 });

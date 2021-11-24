@@ -7,7 +7,10 @@ export default abstract class Service {
 
   public abstract setRepository(repository: Repository): void;
 
-  public abstract getFilmsPage(searchRequest: string, page: number): Promise<GetFilmsResults<FilmModel[]>>;
+  public abstract getFilmsPage(
+    searchRequest: string,
+    page: number
+  ): Promise<GetFilmsResults<FilmModel[]>>;
 
   public abstract getFavorites(): Promise<FilmModel[]>;
 

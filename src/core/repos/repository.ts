@@ -2,6 +2,7 @@ import GetFilmsResults from '../interfaces/GetFilmsResults';
 import Storage from '../storages/storage';
 import FilmModel from '../../models/filmModel';
 import Film from '../interfaces/film';
+import SerializedFilmModel from '../interfaces/serializedFilmModel';
 
 export default abstract class Repository {
   protected static Urls = {
@@ -15,9 +16,12 @@ export default abstract class Repository {
     this.storage = storage;
   }
 
-  public abstract getFilmsPage(searchRequest: string, page: number): Promise<GetFilmsResults<Film[]>>;
+  public abstract getFilmsPage(
+    searchRequest: string,
+    page: number
+  ): Promise<GetFilmsResults<Film[]>>;
 
-  public abstract getFavorites(): Promise<FilmModel[]>;
+  public abstract getFavorites(): Promise<SerializedFilmModel[]>;
 
   public abstract saveFilm(favorites: FilmModel): Promise<void>;
 

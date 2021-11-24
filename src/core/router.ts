@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import FavoritesView from '../views/favoritesView';
 import FilmsListView from '../views/filmsListView';
 import UrlHash from './constants/UrlHash';
@@ -36,22 +37,39 @@ export default class Router {
   }
 
   public createHashChangeListener() {
-    window.location.href = `${Router.getUrlWithoutHash()}#`;
-    window.addEventListener('hashchange', this.controller.handleHash.bind(this.controller));
+    window.location.href = `${this.getUrlWithoutHash()}#`;
+    window.addEventListener(
+      'hashchange',
+      this.controller.handleHash.bind(this.controller),
+    );
   }
 
-  public static getHash(): string {
+  public getHash(): string {
     return window.location.hash.slice(1) as UrlHash;
   }
 
-  public static getUrlWithoutHash(): string {
+  public getUrlWithoutHash(): string {
     return window.location.href.split('#')[0];
+  }
+
+  public switchFavorites(): void {
+    const hash = this.getHash();
+    const urlWithoutHash = this.getUrlWithoutHash();
+    if (hash === UrlHash.main) {
+      window.location.replace(`${urlWithoutHash}#${UrlHash.favorites}`);
+    } else {
+      window.location.replace(`${urlWithoutHash}#${UrlHash.main}`);
+    }
   }
 
   public renderMainPage(films: FilmModel[], filmsManagement: FilmsManagement) {
     this.filmsListView.render({ films, filmsManagement });
-    this.favoritesView.clear();
-    this.responseErrorView.clear();
+    if (this.favoritesView.isRendered()) {
+      this.favoritesView.clear();
+    }
+    if (this.responseErrorView.isRendered()) {
+      this.responseErrorView.clear();
+    }
   }
 
   public renderResponseError(error: string) {
@@ -62,40 +80,60 @@ export default class Router {
     this.favoritesView.render({ films, filmsManagement });
   }
 
-  public renderStaticComponents() {
-    const headerDiv: HTMLElement = document.createElement('div');
-    const contentDiv: HTMLElement = document.createElement('div');
-    const searchDiv: HTMLElement = document.createElement('div');
-    const responseErrorDiv: HTMLElement = document.createElement('div');
-    const filmsListDiv: HTMLElement = document.createElement('div');
-    const favoritesDiv: HTMLElement = document.createElement('div');
+  public renderHeader() : HTMLElement {
+    const container: HTMLElement = document.createElement('div');
 
-    headerDiv.setAttribute('id', SectionID.header.slice(1));
-    contentDiv.setAttribute('id', SectionID.content.slice(1));
-    searchDiv.setAttribute('id', SectionID.search.slice(1));
-    responseErrorDiv.setAttribute('id', SectionID.responseError.slice(1));
-    filmsListDiv.setAttribute('id', SectionID.filmsList.slice(1));
-    favoritesDiv.setAttribute('id', SectionID.favorites.slice(1));
-
-    // header
     const invisibleDiv: HTMLElement = document.createElement('div');
     invisibleDiv.setAttribute('id', 'invisibleDiv');
     const title: HTMLElement = document.createElement('h1');
     title.setAttribute('id', 'title');
-    title.textContent = 'MovieSearch';
+    title.textContent = i18next.t('MovieSearch');
     const openFavoritesButton = document.createElement('button');
-    openFavoritesButton.addEventListener('mousedown', this.controller.switchFavorites.bind(this.controller));
+    openFavoritesButton.addEventListener(
+      'mousedown',
+      this.switchFavorites.bind(this),
+    );
     openFavoritesButton.setAttribute('id', 'switchFavorites');
     openFavoritesButton.textContent = '<3';
-    headerDiv.append(invisibleDiv, title, openFavoritesButton);
 
-    // search line
-    const setSearchRequest = this.controller.setSearchRequest.bind(this.controller);
-    const searchLine: HTMLElement = new SearchLineComponent().render({ setSearchRequest });
-    searchDiv.append(searchLine);
+    container.append(invisibleDiv, title, openFavoritesButton);
+    return container;
+  }
+
+  public renderSearchLine(): HTMLElement {
+    const container: HTMLElement = document.createElement('div');
+
+    const setSearchRequest = this.controller.setSearchRequest.bind(
+      this.controller,
+    );
+    const searchLine: HTMLElement = new SearchLineComponent().render({
+      setSearchRequest,
+    });
+
+    container.append(searchLine);
+    return container;
+  }
+
+  public hashWithoutPoundSign(hash: string): string {
+    return hash.slice(1);
+  }
+
+  public renderStaticComponents() {
+    const headerDiv: HTMLElement = this.renderHeader();
+    const contentDiv: HTMLElement = document.createElement('div');
+    const searchDiv: HTMLElement = this.renderSearchLine();
+    const responseErrorDiv: HTMLElement = document.createElement('div');
+    const filmsListDiv: HTMLElement = document.createElement('div');
+    const favoritesDiv: HTMLElement = document.createElement('div');
+
+    headerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.header));
+    contentDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.content));
+    searchDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.search));
+    responseErrorDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.responseError));
+    filmsListDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.filmsList));
+    favoritesDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.favorites));
 
     contentDiv.append(searchDiv, responseErrorDiv, filmsListDiv, favoritesDiv);
-
     this.root.append(headerDiv, contentDiv);
   }
 }

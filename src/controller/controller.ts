@@ -39,28 +39,18 @@ export default class Controller {
   }
 
   public handleHash(): void {
-    const hash = Router.getHash();
+    const hash = this.router.getHash();
     const filmsManagement: FilmsManagement = {
       addToFavorites: this.addToFavorites.bind(this),
       removeFromFavorites: this.removeFromFavorites.bind(this),
-      addFilms: this.addFilms.bind(this),
       findInFavorites: this.findInFavorites.bind(this),
     };
 
     if (hash === UrlHash.main) {
       this.router.renderMainPage(this.films, filmsManagement);
     } else if (hash === UrlHash.favorites) {
+      filmsManagement.addFilms = this.addFilms.bind(this);
       this.router.renderFavorites(this.favorites, filmsManagement);
-    }
-  }
-
-  public switchFavorites(): void{
-    const hash = Router.getHash();
-    const urlWithoutHash = Router.getUrlWithoutHash();
-    if (hash === UrlHash.main) {
-      window.location.replace(`${urlWithoutHash}#${UrlHash.favorites}`);
-    } else {
-      window.location.replace(`${urlWithoutHash}#${UrlHash.main}`);
     }
   }
 
@@ -72,7 +62,10 @@ export default class Controller {
   }
 
   public async addFilms(): Promise<void> {
-    const filmsToAdd = await this.service.getFilmsPage(this.currentSearchRequest, this.currentFilmsPage);
+    const filmsToAdd = await this.service.getFilmsPage(
+      this.currentSearchRequest,
+      this.currentFilmsPage,
+    );
     if (filmsToAdd.Error) {
       this.router.renderResponseError(filmsToAdd.Error);
     } else {
