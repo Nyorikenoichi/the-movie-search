@@ -1,23 +1,31 @@
-/* eslint-disable no-param-reassign */
 import View from '../core/view';
-import Controller from '../controller/controller';
 import FilmListComponent from '../core/components/filmListComponent';
+import SectionID from '../core/constants/SectionID';
+import FilmModel from '../models/filmModel';
+import FilmsManagement from '../core/interfaces/filmsManagement';
 
-export default class FilmsListView extends View {
-  protected controller: Controller;
+export default class FilmsListView extends View<{
+  films: FilmModel[];
+  filmsManagement: FilmsManagement;
+}> {
+  public render({ films, filmsManagement }): void {
+    if (!this.container) {
+      this.container = this.root.querySelector(SectionID.filmsList);
+    }
+    this.clear();
 
-  public render(root: Element): void {
-    root.innerHTML = '';
-    const filmsList = FilmListComponent.render(this.controller.films, this.controller);
-
-    const loadMoreButton = document.createElement('button');
-    loadMoreButton.innerText = 'load more';
-    loadMoreButton.addEventListener('mousedown', (event) => {
-      this.controller.addFilms();
-      event.preventDefault();
+    const filmsList = new FilmListComponent().render({
+      films,
+      filmsManagement,
     });
 
-    root.appendChild(filmsList);
-    root.appendChild(loadMoreButton);
+    const loadMoreButton = document.createElement('button');
+    loadMoreButton.textContent = 'load more'; // тут не использую i18next потому что этой кнопки не будет на сайте
+    loadMoreButton.addEventListener('mousedown', (event: MouseEvent) => {
+      event.preventDefault();
+      filmsManagement.addFilms();
+    });
+
+    this.container.append(filmsList, loadMoreButton);
   }
 }

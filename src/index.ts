@@ -1,24 +1,33 @@
-import './style.scss';
+import './index.scss';
+
 import Controller from './controller/controller';
 import FilmsListView from './views/filmsListView';
 import FavoritesView from './views/favoritesView';
 import Router from './core/router';
-import SearchLineComponent from './core/components/searchLineComponent';
+import ResponseErrorView from './views/responseErrorView';
+import initI18next from './localization/i18next';
+import FilmsService from './core/services/filmsService';
+import FilmsLocalStorage from './core/storages/localStorage';
+import FilmsRepository from './core/repos/filmsRepository';
 
-const root = document.querySelector('#root');
-const searchDiv = document.createElement('div');
-const filmListDiv = document.createElement('div');
-const favoritesDiv = document.createElement('div');
+initI18next().then(() => {
+  const root: HTMLElement = document.querySelector('#root');
+  const filmsListView = new FilmsListView(root);
+  const favoritesView = new FavoritesView(root);
+  const responseErrorView = new ResponseErrorView(root);
+  const router = new Router(
+    filmsListView,
+    favoritesView,
+    responseErrorView,
+    root,
+  );
 
-root.appendChild(searchDiv);
-root.appendChild(filmListDiv);
-root.appendChild(favoritesDiv);
+  const storage = new FilmsLocalStorage();
+  const repository = new FilmsRepository();
+  repository.setStorage(storage);
+  const service = new FilmsService();
+  service.setRepository(repository);
 
-const filmListView = new FilmsListView();
-const favoritesView = new FavoritesView();
-const router = new Router(filmListView, favoritesView, filmListDiv, favoritesDiv);
-const controller = new Controller(router);
-filmListView.setController(controller);
-favoritesView.setController(controller);
-
-SearchLineComponent.render(searchDiv, controller);
+  // eslint-disable-next-line no-new
+  new Controller(router, service);
+});

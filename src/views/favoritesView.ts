@@ -1,23 +1,27 @@
-/* eslint-disable no-param-reassign */
+import i18next from 'i18next';
 import View from '../core/view';
-import Controller from '../controller/controller';
 import FilmListComponent from '../core/components/filmListComponent';
+import SectionID from '../core/constants/SectionID';
+import FilmModel from '../models/filmModel';
+import FilmsManagement from '../core/interfaces/filmsManagement';
 
-export default class FavoritesView extends View {
-  protected controller: Controller;
-
-  public render(root: Element): void {
-    root.innerHTML = '';
+export default class FavoritesView extends View<{
+  films: FilmModel[];
+  filmsManagement: FilmsManagement;
+}> {
+  public render({ films, filmsManagement }): void {
+    if (!this.container) {
+      this.container = this.root.querySelector(SectionID.favorites);
+    }
+    this.clear();
 
     const favoritesTitle = document.createElement('h2');
-    favoritesTitle.innerText = 'Favorites:';
-    const favoritesList = FilmListComponent.render(this.controller.favorites, this.controller);
+    favoritesTitle.innerText = i18next.t('Favorites');
+    const favoritesList = new FilmListComponent().render({
+      films,
+      filmsManagement,
+    });
 
-    root.appendChild(favoritesTitle);
-    root.appendChild(favoritesList);
-  }
-
-  public hide(root: Element): void {
-    root.innerHTML = '';
+    this.container.append(favoritesTitle, favoritesList);
   }
 }

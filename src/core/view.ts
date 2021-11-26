@@ -1,15 +1,20 @@
-import Controller from '../controller/controller';
+export default abstract class View<T extends Object> {
+  protected root: HTMLElement;
 
-export default abstract class View {
-  protected controller: Controller;
+  protected container: HTMLElement;
 
-  constructor() {
-    this.controller = null;
+  constructor(root: HTMLElement) {
+    this.root = root;
+    this.container = null;
   }
 
-  public setController(controller: Controller): void {
-    this.controller = controller;
+  public clear(): void {
+    this.container.innerHTML = '';
   }
 
-  abstract render(root: Element): void;
+  public isRendered(): boolean {
+    return this.container !== null && this.container.innerHTML.trim() !== '';
+  }
+
+  public abstract render(args: T): void;
 }

@@ -1,3 +1,5 @@
-export default interface ResponseError {
-  error: string;
+interface ResponseError {
+  Error: string;
 }
+
+export default ResponseError;

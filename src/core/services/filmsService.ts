@@ -1,21 +1,40 @@
-import FilmsRepository from '../repos/filmsRepository';
 import Service from './service';
 import FilmModel from '../../models/filmModel';
+import Repository from '../repos/repository';
+import GetFilmsResults from '../interfaces/GetFilmsResults';
 
 export default class FilmsService extends Service {
-  protected repository: FilmsRepository;
-
-  constructor() {
-    super();
-    this.repository = new FilmsRepository();
+  public setRepository(repository: Repository): void {
+    this.repository = repository;
   }
 
-  public async getData(searchRequest: string, page: number): Promise<FilmModel[]> {
-    const data = await this.repository.getData(searchRequest, page);
-    if (data.error) {
-      // will modify this later
+  public async getFilmsPage(
+    searchRequest: string,
+    page: number,
+  ): Promise<GetFilmsResults<FilmModel[]>> {
+    const data = await this.repository.getFilmsPage(searchRequest, page);
+    if (data.Error) {
+      return {
+        Error: data.Error,
+      };
     }
-    // eslint-disable-next-line max-len
-    return data.Search.map((item) => new FilmModel(item.Title, item.Year, item.ImdbID, item.Poster));
+    return {
+      Search: data.Search.map((item) => new FilmModel(item.Title, item.Year, item.imdbID, item.Poster)),
+    };
+  }
+
+  public async getFavorites(): Promise<FilmModel[]> {
+    const favorites = await this.repository.getFavorites();
+    return favorites.map(
+      (film) => new FilmModel(film.title, film.year, film.imdbID, film.imgSrc),
+    );
+  }
+
+  public saveFilm(film: FilmModel): Promise<void> {
+    return this.repository.saveFilm(film);
+  }
+
+  public removeFilm(film: FilmModel): Promise<void> {
+    return this.repository.removeFilm(film);
   }
 }
