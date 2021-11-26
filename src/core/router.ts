@@ -37,24 +37,24 @@ export default class Router {
   }
 
   public createHashChangeListener() {
-    window.location.href = `${this.getUrlWithoutHash()}#`;
+    window.location.href = `${Router.getUrlWithoutHash()}#`;
     window.addEventListener(
       'hashchange',
       this.controller.handleHash.bind(this.controller),
     );
   }
 
-  public getHash(): string {
+  public static getHash(): string {
     return window.location.hash.slice(1) as UrlHash;
   }
 
-  public getUrlWithoutHash(): string {
+  public static getUrlWithoutHash(): string {
     return window.location.href.split('#')[0];
   }
 
   public switchFavorites(): void {
-    const hash = this.getHash();
-    const urlWithoutHash = this.getUrlWithoutHash();
+    const hash = Router.getHash();
+    const urlWithoutHash = Router.getUrlWithoutHash();
     if (hash === UrlHash.main) {
       window.location.replace(`${urlWithoutHash}#${UrlHash.favorites}`);
     } else {
@@ -80,7 +80,7 @@ export default class Router {
     this.favoritesView.render({ films, filmsManagement });
   }
 
-  public renderHeader() : HTMLElement {
+  private renderHeader() : HTMLElement {
     const container: HTMLElement = document.createElement('div');
 
     const invisibleDiv: HTMLElement = document.createElement('div');
@@ -100,7 +100,7 @@ export default class Router {
     return container;
   }
 
-  public renderSearchLine(): HTMLElement {
+  private renderSearchLine(): HTMLElement {
     const container: HTMLElement = document.createElement('div');
 
     const setSearchRequest = this.controller.setSearchRequest.bind(
@@ -114,7 +114,7 @@ export default class Router {
     return container;
   }
 
-  public hashWithoutPoundSign(hash: string): string {
+  private hashWithoutPoundSign(hash: string): string {
     return hash.slice(1);
   }
 

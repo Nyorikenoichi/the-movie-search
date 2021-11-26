@@ -39,7 +39,7 @@ export default class Controller {
   }
 
   public handleHash(): void {
-    const hash = this.router.getHash();
+    const hash = Router.getHash();
     const filmsManagement: FilmsManagement = {
       addToFavorites: this.addToFavorites.bind(this),
       removeFromFavorites: this.removeFromFavorites.bind(this),

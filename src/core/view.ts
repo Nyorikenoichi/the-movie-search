@@ -13,7 +13,7 @@ export default abstract class View<T extends Object> {
   }
 
   public isRendered(): boolean {
-    return this.container !== null && this.container.innerHTML !== '';
+    return this.container !== null && this.container.innerHTML.trim() !== '';
   }
 
   public abstract render(args: T): void;
