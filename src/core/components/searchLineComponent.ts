@@ -1,7 +1,9 @@
 import i18next from 'i18next';
 import Component from '../component';
 
-export default class SearchLineComponent extends Component<{ setSearchRequest: (request: string) => void }> {
+export default class SearchLineComponent extends Component<{
+  setSearchRequest: (request: string) => void;
+}> {
   public render({ setSearchRequest }): HTMLElement {
     const form = document.createElement('form');
     const search = document.createElement('input');
@@ -18,8 +20,8 @@ export default class SearchLineComponent extends Component<{ setSearchRequest: (
 
     form.addEventListener('submit', (event: Event) => {
       event.preventDefault();
-      // eslint-disable-next-line @typescript-eslint/dot-notation
-      const searchRequest: string = event.target['searchInput'].value;
+      const target = event.target as HTMLFormElement;
+      const searchRequest: string = target.searchInput.value;
       setSearchRequest(searchRequest);
     });
 

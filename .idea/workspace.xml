@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154ebf74-2b4c-4c71-a8b2-acfb77888ecd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/view.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/view.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,10 +19,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="CSS File" />
         <option value="SCSS File" />
         <option value="Sass File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -38,6 +42,9 @@
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="20Q4DdWMjgHYep7rLIKBGPQ8jyb" />
   <component name="ProjectViewState">
@@ -105,7 +112,7 @@
       <workItem from="1637597378319" duration="1841000" />
       <workItem from="1637599387915" duration="406000" />
       <workItem from="1637606773303" duration="1037000" />
-      <workItem from="1637608997269" duration="336000" />
+      <workItem from="1637828565996" duration="963000" />
     </task>
     <servers />
   </component>

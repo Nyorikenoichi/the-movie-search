@@ -3,7 +3,10 @@ import Component from '../component';
 import FilmModel from '../../models/filmModel';
 import FilmsManagement from '../interfaces/filmsManagement';
 
-export default class FilmListComponent extends Component<{ films: FilmModel[], filmsManagement: FilmsManagement }> {
+export default class FilmListComponent extends Component<{
+  films: FilmModel[];
+  filmsManagement: FilmsManagement;
+}> {
   public render({ films, filmsManagement }): HTMLElement {
     const filmsListComponent: HTMLElement = document.createElement('ul');
     films.forEach((film) => {

@@ -1,26 +1,25 @@
 import Storage from './storage';
 import FilmModel from '../../models/filmModel';
-import { deleteFilm } from '../helpers/films';
+import SerializedFilmModel from '../interfaces/serializedFilmModel';
+import StorageKey from '../constants/StorageKey';
 
 export default class LocalStorage extends Storage {
-  public getFavorites(): Promise<FilmModel[]> {
-    let favorites = JSON.parse(localStorage.getItem('favorites'));
-    if (favorites) {
-      favorites = favorites.map((film) => new FilmModel(film.title, film.year, film.imdbID, film.imgSrc));
-      return new Promise((resolve) => resolve(favorites));
-    }
-    return new Promise((resole) => resole([]));
+  public getFavorites(): Promise<SerializedFilmModel[]> {
+    const favorites = JSON.parse(localStorage.getItem(StorageKey.favorites));
+    return Promise.resolve(favorites || []);
   }
 
   public async saveFilm(film: FilmModel): Promise<void> {
     let favorites = await this.getFavorites();
-    favorites = [...favorites, film];
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    const filmToSave = { ...film } as SerializedFilmModel;
+    favorites = [...favorites, filmToSave];
+    localStorage.setItem(StorageKey.favorites, JSON.stringify(favorites));
   }
 
-  public async removeFilm(film:FilmModel): Promise<void> {
+  public async removeFilm(film: FilmModel): Promise<void> {
     let favorites = await this.getFavorites();
-    favorites = deleteFilm(film, favorites);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    const filmToRemove = { ...film } as SerializedFilmModel;
+    favorites = favorites.filter((item) => item.imdbID !== filmToRemove.imdbID);
+    localStorage.setItem(StorageKey.favorites, JSON.stringify(favorites));
   }
 }

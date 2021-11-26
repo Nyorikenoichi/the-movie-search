@@ -1,4 +1,4 @@
-enum UrlHash{
+enum UrlHash {
   main = '',
   favorites = 'favorites',
 }
