@@ -4,6 +4,7 @@ enum SectionID {
   search = '#search',
   header = '#header',
   content = '#content',
+  footer = '#footer',
   responseError = '#responseError',
 }
 

@@ -1,8 +1,9 @@
+import Swiper, { Navigation, Pagination } from 'swiper';
 import View from '../core/view';
-import FilmListComponent from '../core/components/filmListComponent';
 import SectionID from '../core/constants/SectionID';
 import FilmModel from '../models/filmModel';
 import FilmsManagement from '../core/interfaces/filmsManagement';
+import FilmSliderComponent from '../core/components/filmSliderComponent';
 
 export default class FilmsListView extends View<{
   films: FilmModel[];
@@ -14,7 +15,7 @@ export default class FilmsListView extends View<{
     }
     this.clear();
 
-    const filmsList = new FilmListComponent().render({
+    const filmsList = new FilmSliderComponent().render({
       films,
       filmsManagement,
     });
@@ -25,7 +26,20 @@ export default class FilmsListView extends View<{
       event.preventDefault();
       filmsManagement.addFilms();
     });
-
     this.container.append(filmsList, loadMoreButton);
+
+    Swiper.use([Navigation, Pagination]);
+    // eslint-disable-next-line no-new
+    new Swiper('.swiper', {
+      pagination: {
+        el: '.swiper-pagination',
+        dynamicBullets: true,
+        dynamicMainBullets: 2,
+      },
+      navigation: {
+        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next',
+      },
+    });
   }
 }

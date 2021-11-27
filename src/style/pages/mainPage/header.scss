@@ -1,4 +1,6 @@
-#header{
+$favoriteButtonSize: 40px;
+
+#header {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -8,23 +10,22 @@
   background: $backgroundDark;
 }
 
-#invisibleDiv{
-  height: 40px;
-  width: 40px;
+#invisibleDiv {
+  height: $favoriteButtonSize;
+  width: $favoriteButtonSize;
 }
 
-#title{
+#title {
   font-family: Revalia, serif;
   font-style: normal;
   font-weight: normal;
   font-size: 30px;
   line-height: 40px;
 
-  color: $blackText;
+  color: $text;
 }
 
-#switchFavorites{
-  height: 40px;
-  width: 40px;
+#switchFavorites {
+  height: $favoriteButtonSize;
+  width: $favoriteButtonSize;
 }
-

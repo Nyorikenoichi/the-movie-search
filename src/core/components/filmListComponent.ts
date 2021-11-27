@@ -34,6 +34,7 @@ export default class FilmListComponent extends Component<{
       listElement.append(addToFavoritesButton);
       filmsListComponent.append(listElement);
     });
+
     return filmsListComponent;
   }
 }

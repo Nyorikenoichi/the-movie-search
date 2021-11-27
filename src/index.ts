@@ -1,4 +1,7 @@
-import './index.scss';
+import './style/index.scss';
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
 
 import Controller from './controller/controller';
 import FilmsListView from './views/filmsListView';

@@ -80,7 +80,7 @@ export default class Router {
     this.favoritesView.render({ films, filmsManagement });
   }
 
-  private renderHeader() : HTMLElement {
+  private renderHeader(): HTMLElement {
     const container: HTMLElement = document.createElement('div');
 
     const invisibleDiv: HTMLElement = document.createElement('div');
@@ -114,6 +114,19 @@ export default class Router {
     return container;
   }
 
+  private renderFooter(): HTMLElement {
+    const container: HTMLElement = document.createElement('div');
+    const innowiseLabel = document.createTextNode('Innowise Group');
+    const gitLabel = document.createElement('a');
+
+    gitLabel.textContent = 'Nyorikenoichi';
+    gitLabel.href = 'https://github.com/Nyorikenoichi';
+    gitLabel.setAttribute('id', 'gitLabel');
+
+    container.append(innowiseLabel, gitLabel);
+    return container;
+  }
+
   private hashWithoutPoundSign(hash: string): string {
     return hash.slice(1);
   }
@@ -121,6 +134,7 @@ export default class Router {
   public renderStaticComponents() {
     const headerDiv: HTMLElement = this.renderHeader();
     const contentDiv: HTMLElement = document.createElement('div');
+    const footerDiv: HTMLElement = this.renderFooter();
     const searchDiv: HTMLElement = this.renderSearchLine();
     const responseErrorDiv: HTMLElement = document.createElement('div');
     const filmsListDiv: HTMLElement = document.createElement('div');
@@ -128,12 +142,22 @@ export default class Router {
 
     headerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.header));
     contentDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.content));
+    footerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.footer));
     searchDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.search));
-    responseErrorDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.responseError));
-    filmsListDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.filmsList));
-    favoritesDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.favorites));
+    responseErrorDiv.setAttribute(
+      'id',
+      this.hashWithoutPoundSign(SectionID.responseError),
+    );
+    filmsListDiv.setAttribute(
+      'id',
+      this.hashWithoutPoundSign(SectionID.filmsList),
+    );
+    favoritesDiv.setAttribute(
+      'id',
+      this.hashWithoutPoundSign(SectionID.favorites),
+    );
 
     contentDiv.append(searchDiv, responseErrorDiv, filmsListDiv, favoritesDiv);
-    this.root.append(headerDiv, contentDiv);
+    this.root.append(headerDiv, contentDiv, footerDiv);
   }
 }

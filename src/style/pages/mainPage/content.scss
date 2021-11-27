@@ -1,16 +1,22 @@
-#content{
+#content {
   background: $backgroundLight;
   height: 85%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-width: 0;
 }
 
-#responseErrorDiv{
+#responseErrorDiv {
   padding-top: 20px;
 }
 
-#filmsListDiv{
+#filmsListDiv {
   padding-top: 10px;
+}
+
+.swiper {
+  width: 600px;
+  height: 300px;
 }

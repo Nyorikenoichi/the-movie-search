@@ -19,7 +19,9 @@ export default class FilmsService extends Service {
       };
     }
     return {
-      Search: data.Search.map((item) => new FilmModel(item.Title, item.Year, item.imdbID, item.Poster)),
+      Search: data.Search.map(
+        (item) => new FilmModel(item.Title, item.Year, item.imdbID, item.Poster),
+      ),
     };
   }
 
