@@ -8,6 +8,7 @@ import FilmsManagement from './interfaces/filmsManagement';
 import FilmModel from '../models/filmModel';
 import ResponseErrorView from '../views/responseErrorView';
 import SectionID from './constants/SectionID';
+import heartIcon from '../assets/icons/heart.png';
 
 export default class Router {
   private controller: Controller;
@@ -88,15 +89,16 @@ export default class Router {
     const title: HTMLElement = document.createElement('h1');
     title.setAttribute('id', 'title');
     title.textContent = i18next.t('MovieSearch');
-    const openFavoritesButton = document.createElement('button');
-    openFavoritesButton.addEventListener(
+
+    const openFavorites = document.createElement('img');
+    openFavorites.addEventListener(
       'mousedown',
       this.switchFavorites.bind(this),
     );
-    openFavoritesButton.setAttribute('id', 'switchFavorites');
-    openFavoritesButton.textContent = '<3';
+    openFavorites.setAttribute('id', 'switchFavorites');
+    openFavorites.src = heartIcon;
 
-    container.append(invisibleDiv, title, openFavoritesButton);
+    container.append(invisibleDiv, title, openFavorites);
     return container;
   }
 
@@ -143,7 +145,7 @@ export default class Router {
     headerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.header));
     contentDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.content));
     footerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.footer));
-    searchDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.search));
+    searchDiv.setAttribute('class', this.hashWithoutPoundSign(SectionID.search));
     responseErrorDiv.setAttribute(
       'id',
       this.hashWithoutPoundSign(SectionID.responseError),

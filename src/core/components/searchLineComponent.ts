@@ -1,5 +1,6 @@
 import i18next from 'i18next';
 import Component from '../component';
+import searchIcon from '../../assets/icons/search.png'
 
 export default class SearchLineComponent extends Component<{
   setSearchRequest: (request: string) => void;
@@ -7,24 +8,28 @@ export default class SearchLineComponent extends Component<{
   public render({ setSearchRequest }): HTMLElement {
     const form = document.createElement('form');
     const search = document.createElement('input');
-    const submit = document.createElement('input');
+    const submit = document.createElement('img');
 
     search.setAttribute('type', 'search');
-    search.setAttribute('id', 'search');
+    search.setAttribute('class', 'search-input');
     search.setAttribute('name', 'searchInput');
-    submit.setAttribute('type', 'submit');
-    submit.setAttribute('value', i18next.t('Search'));
+    search.placeholder = 'search films...';
 
-    form.append(search);
-    form.append(submit);
+    submit.src = searchIcon;
+    submit.addEventListener('mousedown', (event: Event) => {
+      const submitEvent = document.createEvent("Event");
+      submitEvent.initEvent("submit", true, true);
+      form.dispatchEvent(submitEvent);
+    });
 
+    form.setAttribute('class', 'search-form');
     form.addEventListener('submit', (event: Event) => {
       event.preventDefault();
       const target = event.target as HTMLFormElement;
       const searchRequest: string = target.searchInput.value;
       setSearchRequest(searchRequest);
     });
-
+    form.append(search, submit);
     return form;
   }
 }

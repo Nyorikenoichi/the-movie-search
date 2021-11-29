@@ -1,7 +1,7 @@
 enum SectionID {
   filmsList = '#filmsList',
   favorites = '#favorites',
-  search = '#search',
+  search = '#search-wrapper',
   header = '#header',
   content = '#content',
   footer = '#footer',

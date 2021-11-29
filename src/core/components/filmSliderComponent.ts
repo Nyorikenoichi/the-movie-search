@@ -32,11 +32,18 @@ export default class FilmSliderComponent extends Component<{
 
   private renderSlide(film: FilmModel, filmsManagement: FilmsManagement): HTMLElement {
     const slide = document.createElement('div');
-    slide.setAttribute('class', 'swiper-slide');
+    slide.setAttribute('class', 'swiper-slide movie-card');
 
-    const title = document.createTextNode(film.getTitle());
+    const title = document.createElement('a');
+    title.setAttribute('class', 'movie-card-title');
+    title.textContent = film.getTitle();
+    title.href = `https://www.imdb.com/title/${film.getImdbID()}`;
+
+    const poster = document.createElement('img');
+    poster.setAttribute('class', 'movie-card-poster')
+    poster.src = film.getImgSrc();
+
     const addToFavoritesButton: HTMLElement = document.createElement('button');
-
     if (filmsManagement.findInFavorites(film)) {
       addToFavoritesButton.textContent = i18next.t('Remove');
     } else {
@@ -54,7 +61,7 @@ export default class FilmSliderComponent extends Component<{
       }
     });
 
-    slide.append(title, addToFavoritesButton);
+    slide.append(title, poster, addToFavoritesButton);
     return slide;
   }
 }

@@ -15,7 +15,7 @@ export default class FilmsListView extends View<{
     }
     this.clear();
 
-    const filmsList = new FilmSliderComponent().render({
+    const filmsSlider = new FilmSliderComponent().render({
       films,
       filmsManagement,
     });
@@ -26,11 +26,30 @@ export default class FilmsListView extends View<{
       event.preventDefault();
       filmsManagement.addFilms();
     });
-    this.container.append(filmsList, loadMoreButton);
+    this.container.append(filmsSlider, loadMoreButton);
+    this.initializeSlider();
+  }
 
+  private initializeSlider(): void{
     Swiper.use([Navigation, Pagination]);
     // eslint-disable-next-line no-new
     new Swiper('.swiper', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      breakpoints: {
+        500: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        750: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        },
+        1000: {
+          slidesPerView: 4,
+          spaceBetween: 40
+        },
+      },
       pagination: {
         el: '.swiper-pagination',
         dynamicBullets: true,

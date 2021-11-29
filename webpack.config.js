@@ -19,6 +19,10 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.png/,
+        type: 'asset/resource',
+      },
+      {
         test: /\.(s*)css$/i,
         use: [
           {
@@ -29,14 +33,6 @@ module.exports = {
           'sass-loader'
         ]
       },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader'
-          }
-        ]
-      }
     ]
   },
   devServer: {

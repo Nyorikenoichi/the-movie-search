@@ -4,9 +4,7 @@ $favoriteButtonSize: 40px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-
   height: 10%;
-
   background: $backgroundDark;
 }
 
@@ -16,16 +14,16 @@ $favoriteButtonSize: 40px;
 }
 
 #title {
-  font-family: Revalia, serif;
-  font-style: normal;
-  font-weight: normal;
   font-size: 30px;
   line-height: 40px;
-
   color: $text;
 }
 
 #switchFavorites {
   height: $favoriteButtonSize;
   width: $favoriteButtonSize;
+}
+
+#switchFavorites:hover {
+  transform: scale(1.2);
 }
