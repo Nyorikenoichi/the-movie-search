@@ -2,6 +2,9 @@ import i18next from 'i18next';
 import Component from '../component';
 import FilmModel from '../../models/filmModel';
 import FilmsManagement from '../interfaces/filmsManagement';
+import starIcon from '../../assets/icons/star.png';
+import heartIcon from '../../assets/icons/heart.png';
+import heartEmptyIcon from '../../assets/icons/heart_empty.png';
 
 export default class FilmSliderComponent extends Component<{
   films: FilmModel[];
@@ -43,25 +46,43 @@ export default class FilmSliderComponent extends Component<{
     poster.setAttribute('class', 'movie-card-poster')
     poster.src = film.getImgSrc();
 
-    const addToFavoritesButton: HTMLElement = document.createElement('button');
+
+    const infoContainer = document.createElement('div');
+    infoContainer.setAttribute('class', 'movie-card-info')
+
+    const addToFavoritesButton = document.createElement('img');
+    addToFavoritesButton.setAttribute('class', 'movie-card-add-button');
     if (filmsManagement.findInFavorites(film)) {
-      addToFavoritesButton.textContent = i18next.t('Remove');
+      addToFavoritesButton.src = heartIcon;
     } else {
-      addToFavoritesButton.textContent = i18next.t('Add');
+      addToFavoritesButton.src = heartEmptyIcon;
     }
 
     addToFavoritesButton.addEventListener('mousedown', (event) => {
       event.preventDefault();
+      console.log('!');
       if (filmsManagement.findInFavorites(film)) {
         filmsManagement.removeFromFavorites(film);
-        addToFavoritesButton.textContent = i18next.t('Add');
+        addToFavoritesButton.src = heartEmptyIcon;
       } else {
         filmsManagement.addToFavorites(film);
-        addToFavoritesButton.textContent = i18next.t('Remove');
+        addToFavoritesButton.src = heartEmptyIcon;
       }
     });
 
-    slide.append(title, poster, addToFavoritesButton);
+    const year = document.createElement('div');
+    year.setAttribute('class', 'movie-card-year');
+    year.textContent = film.getYear();
+
+    const rating = document.createElement('div');
+    rating.setAttribute('class', 'movie-card-rating');
+    const starImg = document.createElement('img');
+    starImg.setAttribute('class', 'movie-card-star');
+    starImg.src = starIcon;
+    rating.append(starImg, document.createTextNode('10.0'));
+
+    infoContainer.append(addToFavoritesButton, year, rating);
+    slide.append(title, poster, infoContainer);
     return slide;
   }
 }

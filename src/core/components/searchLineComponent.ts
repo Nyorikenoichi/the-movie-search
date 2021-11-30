@@ -16,6 +16,7 @@ export default class SearchLineComponent extends Component<{
     search.placeholder = 'search films...';
 
     submit.src = searchIcon;
+    submit.setAttribute('class', 'search-submit');
     submit.addEventListener('mousedown', (event: Event) => {
       const submitEvent = document.createEvent("Event");
       submitEvent.initEvent("submit", true, true);

@@ -1,0 +1,10 @@
+.swiper {
+  width: 1000px;
+  height: 500px;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: $text;
+  font-weight: bold;
+  z-index: 100;
+}

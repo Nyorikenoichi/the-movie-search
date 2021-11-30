@@ -26,7 +26,7 @@ export default class FilmsListView extends View<{
       event.preventDefault();
       filmsManagement.addFilms();
     });
-    this.container.append(filmsSlider, loadMoreButton);
+    this.container.append(filmsSlider)// , loadMoreButton);
     this.initializeSlider();
   }
 
