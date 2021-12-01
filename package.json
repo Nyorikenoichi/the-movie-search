@@ -7,7 +7,7 @@
     "build": "webpack --mode=development",
     "prod": "webpack --mode=production",
     "start": "webpack serve --mode=development",
-    "eslint": "npx eslint ./",
+    "eslint": "npx eslint --fix ./",
     "prettier": "npx prettier --write ."
   },
   "lint-staged": {
