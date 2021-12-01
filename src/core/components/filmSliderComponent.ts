@@ -51,22 +51,21 @@ export default class FilmSliderComponent extends Component<{
     infoContainer.setAttribute('class', 'movie-card-info')
 
     const addToFavoritesButton = document.createElement('img');
-    addToFavoritesButton.setAttribute('class', 'movie-card-add-button');
     if (filmsManagement.findInFavorites(film)) {
       addToFavoritesButton.src = heartIcon;
     } else {
       addToFavoritesButton.src = heartEmptyIcon;
     }
 
-    addToFavoritesButton.addEventListener('mousedown', (event) => {
+    addToFavoritesButton.setAttribute('class', 'movie-card-add-button');
+    addToFavoritesButton.addEventListener('click', (event) => {
       event.preventDefault();
-      console.log('!');
       if (filmsManagement.findInFavorites(film)) {
         filmsManagement.removeFromFavorites(film);
         addToFavoritesButton.src = heartEmptyIcon;
       } else {
         filmsManagement.addToFavorites(film);
-        addToFavoritesButton.src = heartEmptyIcon;
+        addToFavoritesButton.src = heartIcon;
       }
     });
 
@@ -79,7 +78,10 @@ export default class FilmSliderComponent extends Component<{
     const starImg = document.createElement('img');
     starImg.setAttribute('class', 'movie-card-star');
     starImg.src = starIcon;
-    rating.append(starImg, document.createTextNode('10.0'));
+    const ratingLabel = document.createElement('div');
+    ratingLabel.setAttribute('class', 'movie-card-rating-label');
+    ratingLabel.textContent = '10.0';
+    rating.append(starImg, ratingLabel);
 
     infoContainer.append(addToFavoritesButton, year, rating);
     slide.append(title, poster, infoContainer);
