@@ -6,7 +6,6 @@
 
 .movie-card-title {
   color: $text;
-  position: relative;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
@@ -18,6 +17,7 @@
 .movie-card-poster {
   border-radius: 10% / 20%;
   width: 100%;
+  //sometimes it is a bad practise to use magic-height/width values
   height: 300px;
   margin-bottom: 10px;
 }
@@ -38,13 +38,15 @@
   width: 25px;
   position: absolute;
   right: 10px;
+  transition: all .2s ease-in-out;
 }
-
+//hover | active and others pseudo stuff should be at the end of file
 .movie-card-add-button:hover {
   transform: scale(1.2);
 }
 
 .movie-card-rating-label {
+  //strongly reccomend you to read about properties order
   margin-left: 10px;
   vertical-align: middle;
   line-height: 25px;

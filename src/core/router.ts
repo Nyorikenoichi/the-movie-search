@@ -135,6 +135,7 @@ export default class Router {
 
   public renderStaticComponents() {
     const headerDiv: HTMLElement = this.renderHeader();
+    const overlayDiv: HTMLElement = document.createElement('div');
     const contentDiv: HTMLElement = document.createElement('div');
     const footerDiv: HTMLElement = this.renderFooter();
     const searchDiv: HTMLElement = this.renderSearchLine();
@@ -143,6 +144,7 @@ export default class Router {
     const favoritesDiv: HTMLElement = document.createElement('div');
 
     headerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.header));
+    overlayDiv.setAttribute('class', this.hashWithoutPoundSign(SectionID.overlay));
     contentDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.content));
     footerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.footer));
     searchDiv.setAttribute('class', this.hashWithoutPoundSign(SectionID.search));
@@ -159,7 +161,8 @@ export default class Router {
       this.hashWithoutPoundSign(SectionID.favorites),
     );
 
-    contentDiv.append(searchDiv, responseErrorDiv, filmsListDiv, favoritesDiv);
+    overlayDiv.append(favoritesDiv);
+    contentDiv.append(overlayDiv, searchDiv, responseErrorDiv, filmsListDiv);
     this.root.append(headerDiv, contentDiv, footerDiv);
   }
 }

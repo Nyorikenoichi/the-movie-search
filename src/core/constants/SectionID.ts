@@ -1,5 +1,6 @@
 enum SectionID {
   filmsList = '#filmsList',
+  overlay = '.overlay',
   favorites = '#favorites',
   search = '#search-wrapper',
   header = '#header',

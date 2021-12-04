@@ -61,4 +61,8 @@ export default class FilmsListView extends View<{
       },
     });
   }
+
+  public clear(): void {
+    this.container.innerHTML = '';
+  }
 }
