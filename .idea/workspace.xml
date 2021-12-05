@@ -5,43 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154ebf74-2b4c-4c71-a8b2-acfb77888ecd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/components/filmCardComponent.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/pages/favoritesOverlay.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/components/filmListComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/filmListComponent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/components/searchLineComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/searchLineComponent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/components/filmSliderComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/filmSliderComponent.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/constants/SectionID.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/constants/SectionID.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/constants/StorageKey.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/constants/StorageKey.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/constants/UrlHash.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/constants/UrlHash.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/helpers/films.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/helpers/films.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/interfaces/GetFilmsResults.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/interfaces/GetFilmsResults.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/interfaces/film.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/interfaces/film.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/interfaces/filmsManagement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/interfaces/filmsManagement.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/interfaces/responseError.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/interfaces/responseError.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/interfaces/serializedFilmModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/interfaces/serializedFilmModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/repos/filmsRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/repos/filmsRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/repos/repository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/repos/repository.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/router.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/services/filmsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/filmsService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/services/service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/storages/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/storages/localStorage.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/storages/storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/storages/storage.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/view.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/view.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/localization/en/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/localization/en/translation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/localization/i18next.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/localization/i18next.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/filmModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/filmModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/common/filmCard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/filmCard.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/common/slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/slider.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/components/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/components/footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/components/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/components/header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/pages/mainPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/pages/mainPage.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/favoritesView.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/favoritesView.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/filmsListView.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/filmsListView.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/responseErrorView.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/responseErrorView.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,10 +36,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="SCSS File" />
         <option value="Sass File" />
+        <option value="CSS File" />
         <option value="TypeScript File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -89,7 +74,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="Sass" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -99,16 +84,16 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettier.import.notification.dismissed" value="true" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\max\Desktop\wut\node_modules\prettier" />
-    <property name="ts.external.directory.path" value="D:\internship\the-movie-search\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\soft\WebStorm 2021.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\internship\the-movie-search\src\core\storages" />
-      <recent name="D:\internship\the-movie-search\src\core\components" />
-      <recent name="D:\internship\the-movie-search\src\core" />
-      <recent name="D:\internship\the-movie-search\src\localization\en" />
-      <recent name="D:\internship\the-movie-search\src" />
+      <recent name="D:\internship\the-movie-search\src\style\pages" />
+      <recent name="D:\internship\the-movie-search\src\style\components" />
+      <recent name="D:\internship\the-movie-search\src\assets\icons" />
+      <recent name="D:\internship\the-movie-search\src\style\pages\mainPage" />
+      <recent name="D:\internship\the-movie-search\src\style\constants" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -146,7 +131,12 @@
       <workItem from="1637599387915" duration="406000" />
       <workItem from="1637606773303" duration="1037000" />
       <workItem from="1637828565996" duration="963000" />
-      <workItem from="1638360797119" duration="5165000" />
+      <workItem from="1638008147365" duration="865000" />
+      <workItem from="1638020725045" duration="7070000" />
+      <workItem from="1638164170729" duration="765000" />
+      <workItem from="1638165505992" duration="21387000" />
+      <workItem from="1638349814522" duration="4396000" />
+      <workItem from="1638367670266" duration="7076000" />
     </task>
     <servers />
   </component>

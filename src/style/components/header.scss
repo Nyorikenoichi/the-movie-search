@@ -1,0 +1,30 @@
+$favoriteButtonSize: 40px;
+
+#header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10%;
+  background: $backgroundDark;
+}
+
+#invisibleDiv {
+  height: $favoriteButtonSize;
+  width: $favoriteButtonSize;
+}
+
+#title {
+  font-size: 30px;
+  line-height: 40px;
+  color: $text;
+}
+
+#switchFavorites {
+  height: $favoriteButtonSize;
+  width: $favoriteButtonSize;
+  transition: all .2s ease-in-out;
+}
+
+#switchFavorites:hover {
+  transform: scale(1.2);
+}

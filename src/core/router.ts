@@ -8,6 +8,7 @@ import FilmsManagement from './interfaces/filmsManagement';
 import FilmModel from '../models/filmModel';
 import ResponseErrorView from '../views/responseErrorView';
 import SectionID from './constants/SectionID';
+import heartIcon from '../assets/icons/heart.png';
 
 export default class Router {
   private controller: Controller;
@@ -88,15 +89,16 @@ export default class Router {
     const title: HTMLElement = document.createElement('h1');
     title.setAttribute('id', 'title');
     title.textContent = i18next.t('MovieSearch');
-    const openFavoritesButton = document.createElement('button');
-    openFavoritesButton.addEventListener(
+
+    const openFavorites = document.createElement('img');
+    openFavorites.addEventListener(
       'mousedown',
       this.switchFavorites.bind(this),
     );
-    openFavoritesButton.setAttribute('id', 'switchFavorites');
-    openFavoritesButton.textContent = '<3';
+    openFavorites.setAttribute('id', 'switchFavorites');
+    openFavorites.src = heartIcon;
 
-    container.append(invisibleDiv, title, openFavoritesButton);
+    container.append(invisibleDiv, title, openFavorites);
     return container;
   }
 
@@ -114,21 +116,38 @@ export default class Router {
     return container;
   }
 
+  private renderFooter(): HTMLElement {
+    const container: HTMLElement = document.createElement('div');
+    const innowiseLabel = document.createTextNode('Innowise Group');
+    const gitLabel = document.createElement('a');
+
+    gitLabel.textContent = 'Nyorikenoichi';
+    gitLabel.href = 'https://github.com/Nyorikenoichi';
+    gitLabel.setAttribute('id', 'gitLabel');
+
+    container.append(innowiseLabel, gitLabel);
+    return container;
+  }
+
   private hashWithoutPoundSign(hash: string): string {
     return hash.slice(1);
   }
 
   public renderStaticComponents() {
     const headerDiv: HTMLElement = this.renderHeader();
+    const overlayDiv: HTMLElement = document.createElement('div');
     const contentDiv: HTMLElement = document.createElement('div');
+    const footerDiv: HTMLElement = this.renderFooter();
     const searchDiv: HTMLElement = this.renderSearchLine();
     const responseErrorDiv: HTMLElement = document.createElement('div');
     const filmsListDiv: HTMLElement = document.createElement('div');
     const favoritesDiv: HTMLElement = document.createElement('div');
 
     headerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.header));
+    overlayDiv.setAttribute('class', this.hashWithoutPoundSign(SectionID.overlay));
     contentDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.content));
-    searchDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.search));
+    footerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.footer));
+    searchDiv.setAttribute('class', this.hashWithoutPoundSign(SectionID.search));
     responseErrorDiv.setAttribute(
       'id',
       this.hashWithoutPoundSign(SectionID.responseError),
@@ -142,7 +161,8 @@ export default class Router {
       this.hashWithoutPoundSign(SectionID.favorites),
     );
 
-    contentDiv.append(searchDiv, responseErrorDiv, filmsListDiv, favoritesDiv);
-    this.root.append(headerDiv, contentDiv);
+    overlayDiv.append(favoritesDiv);
+    contentDiv.append(overlayDiv, searchDiv, responseErrorDiv, filmsListDiv);
+    this.root.append(headerDiv, contentDiv, footerDiv);
   }
 }

@@ -8,9 +8,7 @@ export default abstract class View<T extends Object> {
     this.container = null;
   }
 
-  public clear(): void {
-    this.container.innerHTML = '';
-  }
+  public abstract clear();
 
   public isRendered(): boolean {
     return this.container !== null && this.container.innerHTML.trim() !== '';

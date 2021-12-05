@@ -47,9 +47,9 @@ export default class Controller {
     };
 
     if (hash === UrlHash.main) {
+      filmsManagement.addFilms = this.addFilms.bind(this);
       this.router.renderMainPage(this.films, filmsManagement);
     } else if (hash === UrlHash.favorites) {
-      filmsManagement.addFilms = this.addFilms.bind(this);
       this.router.renderFavorites(this.favorites, filmsManagement);
     }
   }

@@ -1,0 +1,16 @@
+#footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  font-size: 15px;
+  height: 5%;
+
+  background: $backgroundDark;
+}
+
+#gitLabel {
+  color: $text;
+}
+
+//styling which is based on id's not the best practise, it's difficult to override sometimes

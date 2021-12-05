@@ -1,0 +1,20 @@
+.overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 0;
+  position: absolute;
+  z-index: 20;
+  right: 0;
+  background-color: $backgroundDark;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+#favorites {
+  position: relative;
+  width: 300px;
+  text-align: center;
+  margin-top: 30px;
+}

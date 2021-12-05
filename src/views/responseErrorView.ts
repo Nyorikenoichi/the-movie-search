@@ -12,4 +12,8 @@ export default class ResponseErrorView extends View<{ error: string }> {
 
     this.container.append(errorText);
   }
+
+  public clear(): void {
+    this.container.innerHTML = '';
+  }
 }

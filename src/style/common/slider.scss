@@ -1,0 +1,11 @@
+//it's a bad practise to use magic values that can be changed
+.swiper {
+  width: 1000px;
+  height: 450px;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: $text;
+  font-weight: bold;
+  z-index: 100;
+}
