@@ -69,9 +69,21 @@ export default class Controller {
     if (filmsToAdd.Error) {
       this.router.renderResponseError(filmsToAdd.Error);
     } else {
-      this.films = this.films.concat(filmsToAdd.Search as FilmModel[]);
+      this.films = this.films.concat(filmsToAdd.Search);
+
+      const filmsManagement: FilmsManagement = {
+        addToFavorites: this.addToFavorites.bind(this),
+        removeFromFavorites: this.removeFromFavorites.bind(this),
+        findInFavorites: this.findInFavorites.bind(this),
+        addFilms: this.addFilms.bind(this),
+      };
+
+      if(this.currentFilmsPage === 1){
+        this.handleHash();
+      } else {
+        this.router.addFilmsToSlider(filmsToAdd.Search, filmsManagement);
+      }
       this.currentFilmsPage += 1;
-      this.handleHash();
     }
   }
 

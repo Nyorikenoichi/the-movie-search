@@ -17,10 +17,9 @@
 .search-form{
   display: flex;
   width: 100%;
-  background-color: rgba(242,221,146,0.9);
+  background-color: $backgroundDark;
   border-radius: 30px;
-  //what the hell is this values? XD
-  padding: 7px 5px 7px 53px;
+  padding: 7px;
 }
 
 .search-input {

@@ -9,6 +9,7 @@ import FilmModel from '../models/filmModel';
 import ResponseErrorView from '../views/responseErrorView';
 import SectionID from './constants/SectionID';
 import heartIcon from '../assets/icons/heart.png';
+import FilmCardComponent from './components/filmCardComponent';
 
 export default class Router {
   private controller: Controller;
@@ -61,6 +62,14 @@ export default class Router {
     } else {
       window.location.replace(`${urlWithoutHash}#${UrlHash.main}`);
     }
+  }
+
+  public addFilmsToSlider(films: FilmModel[], filmsManagement: FilmsManagement): void {
+    const sliderWrapper = document.querySelector('.swiper-wrapper');
+    films.forEach((film) => {
+      const filmCard = new FilmCardComponent().render({film, filmsManagement});
+      sliderWrapper.append(filmCard);
+    });
   }
 
   public renderMainPage(films: FilmModel[], filmsManagement: FilmsManagement) {

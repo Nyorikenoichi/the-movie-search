@@ -17,7 +17,6 @@ export default class FilmCardComponent extends Component<{
     const title = document.createElement('a');
     title.setAttribute('class', 'movie-card-title');
     title.textContent = film.getTitle();
-    //this stuff is better to see as a variable
     title.href = `https://www.imdb.com/title/${film.getImdbID()}`;
 
     const poster = document.createElement('img');
@@ -51,15 +50,16 @@ export default class FilmCardComponent extends Component<{
     year.setAttribute('class', 'movie-card-year');
     year.textContent = film.getYear();
 
-    //undredable!
     const rating = document.createElement('div');
     rating.setAttribute('class', 'movie-card-rating');
+
     const starImg = document.createElement('img');
     starImg.setAttribute('class', 'movie-card-star');
     starImg.src = starIcon;
+
     const ratingLabel = document.createElement('div');
     ratingLabel.setAttribute('class', 'movie-card-rating-label');
-    ratingLabel.textContent = '10.0';
+    ratingLabel.textContent = film.getRating();
     rating.append(starImg, ratingLabel);
 
     infoContainer.append(addToFavoritesButton, year, rating);

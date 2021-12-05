@@ -20,20 +20,13 @@ export default class FilmsListView extends View<{
       filmsManagement,
     });
 
-    const loadMoreButton = document.createElement('button');
-    loadMoreButton.textContent = 'load more'; // тут не использую i18next потому что этой кнопки не будет на сайте
-    loadMoreButton.addEventListener('mousedown', (event: MouseEvent) => {
-      event.preventDefault();
-      filmsManagement.addFilms();
-    });
-    this.container.append(filmsSlider)// , loadMoreButton);
-    this.initializeSlider();
+    this.container.append(filmsSlider)
+    this.initializeSlider(filmsManagement.addFilms);
   }
 
-  private initializeSlider(): void{
+  private initializeSlider(addFilms: () => Promise<void>): void{
     Swiper.use([Navigation, Pagination]);
-    // eslint-disable-next-line no-new
-    new Swiper('.swiper', {
+    const slider = new Swiper('.swiper', {
       slidesPerView: 1,
       spaceBetween: 10,
       breakpoints: {
@@ -58,6 +51,13 @@ export default class FilmsListView extends View<{
       navigation: {
         prevEl: '.swiper-button-prev',
         nextEl: '.swiper-button-next',
+      },
+      on: {
+        slideChange: () => {
+          if(slider.isEnd) {
+            addFilms().then(() => slider.update());
+          }
+        },
       },
     });
   }
