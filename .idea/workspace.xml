@@ -13,6 +13,10 @@
       <change beforePath="$PROJECT_DIR$/src/core/components/filmSliderComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/filmSliderComponent.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/constants/SectionID.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/constants/SectionID.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/filmsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/filmsService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/storages/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/storages/localStorage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/storages/storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/storages/storage.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/view.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/view.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/common/filmCard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/filmCard.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/common/slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/slider.scss" afterDir="false" />
@@ -78,6 +82,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettier.import.notification.dismissed" value="true" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\max\Desktop\wut\node_modules\prettier" />
     <property name="ts.external.directory.path" value="D:\soft\WebStorm 2021.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />

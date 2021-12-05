@@ -4,6 +4,7 @@ interface Film {
   imdbID: string;
   Type: string;
   Poster: string;
+  Rating: string;
 }
 
 export default Film;

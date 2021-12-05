@@ -12,9 +12,23 @@ export default class FilmsRepository extends Repository {
   ): Promise<GetFilmsResults<Film[]>> {
     try {
       const response = await fetch(
-        Repository.Urls.MainUrl(searchRequest, page),
+        Repository.Urls.filmsPage(searchRequest, page),
       );
-      return await response.json();
+      const films: GetFilmsResults<Film[]> = await response.json();
+
+      const additionalPromises = films.Search.map((film) => fetch(Repository.Urls.filmInfo(film.imdbID)));
+
+      const detailInfoResponse = await Promise.all(additionalPromises);
+
+      const filmsDetailInfo = await Promise.all(detailInfoResponse.map((film) => film.json()));
+      films.Search.map((film, index) => {
+        const filmWithRating = Object.assign(film);
+        const rating = filmsDetailInfo[index].imdbRating;
+        filmWithRating.Rating = rating;
+        return filmWithRating;
+      });
+
+      return films;
     } catch (err: Error | unknown) {
       if (err instanceof Error) {
         return {

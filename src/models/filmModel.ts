@@ -7,11 +7,14 @@ export default class FilmModel {
 
   private readonly imgSrc: string;
 
-  constructor(title: string, year: string, imdbID: string, imgScr: string) {
+  private readonly rating: string;
+
+  constructor(title: string, year: string, imdbID: string, imgScr: string, rating: string) {
     this.title = title;
     this.year = year;
     this.imdbID = imdbID;
     this.imgSrc = imgScr;
+    this.rating = rating;
   }
 
   public getTitle(): string {
@@ -28,5 +31,9 @@ export default class FilmModel {
 
   public getImgSrc(): string {
     return this.imgSrc;
+  }
+
+  public getRating(): string {
+    return this.rating;
   }
 }

@@ -20,7 +20,7 @@ export default class FilmsService extends Service {
     }
     return {
       Search: data.Search.map(
-        (item) => new FilmModel(item.Title, item.Year, item.imdbID, item.Poster),
+        (item) => new FilmModel(item.Title, item.Year, item.imdbID, item.Poster, item.Rating),
       ),
     };
   }
@@ -28,7 +28,7 @@ export default class FilmsService extends Service {
   public async getFavorites(): Promise<FilmModel[]> {
     const favorites = await this.repository.getFavorites();
     return favorites.map(
-      (film) => new FilmModel(film.title, film.year, film.imdbID, film.imgSrc),
+      (film) => new FilmModel(film.title, film.year, film.imdbID, film.imgSrc, film.rating),
     );
   }
 
