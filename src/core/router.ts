@@ -80,7 +80,7 @@ export default class Router {
     this.favoritesView.render({ films, filmsManagement });
   }
 
-  private renderHeader() : HTMLElement {
+  private renderHeader(): HTMLElement {
     const container: HTMLElement = document.createElement('div');
 
     const invisibleDiv: HTMLElement = document.createElement('div');
@@ -129,9 +129,18 @@ export default class Router {
     headerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.header));
     contentDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.content));
     searchDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.search));
-    responseErrorDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.responseError));
-    filmsListDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.filmsList));
-    favoritesDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.favorites));
+    responseErrorDiv.setAttribute(
+      'id',
+      this.hashWithoutPoundSign(SectionID.responseError),
+    );
+    filmsListDiv.setAttribute(
+      'id',
+      this.hashWithoutPoundSign(SectionID.filmsList),
+    );
+    favoritesDiv.setAttribute(
+      'id',
+      this.hashWithoutPoundSign(SectionID.favorites),
+    );
 
     contentDiv.append(searchDiv, responseErrorDiv, filmsListDiv, favoritesDiv);
     this.root.append(headerDiv, contentDiv);

@@ -7,7 +7,8 @@ import SerializedFilmModel from '../interfaces/serializedFilmModel';
 export default abstract class Repository {
   protected static Urls = {
     // eslint-disable-next-line max-len
-    MainUrl: (searchRequest: string, page: number) => `https://www.omdbapi.com/?s=${searchRequest}&apikey=${process.env.APIKEY}&page=${page}`,
+    filmsPage: (searchRequest: string, page: number) => `https://www.omdbapi.com/?s=${searchRequest}&apikey=${process.env.APIKEY}&page=${page}`,
+    filmInfo: (filmID: string) => `https://www.omdbapi.com/?i=${filmID}&apikey=${process.env.APIKEY}`,
   };
 
   protected storage: Storage;

@@ -19,14 +19,16 @@ export default class FilmsService extends Service {
       };
     }
     return {
-      Search: data.Search.map((item) => new FilmModel(item.Title, item.Year, item.imdbID, item.Poster)),
+      Search: data.Search.map(
+        (item) => new FilmModel(item.Title, item.Year, item.imdbID, item.Poster, item.Rating),
+      ),
     };
   }
 
   public async getFavorites(): Promise<FilmModel[]> {
     const favorites = await this.repository.getFavorites();
     return favorites.map(
-      (film) => new FilmModel(film.title, film.year, film.imdbID, film.imgSrc),
+      (film) => new FilmModel(film.title, film.year, film.imdbID, film.imgSrc, film.rating),
     );
   }
 
