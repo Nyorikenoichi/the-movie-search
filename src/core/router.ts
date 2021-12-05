@@ -3,13 +3,14 @@ import FavoritesView from '../views/favoritesView';
 import FilmsListView from '../views/filmsListView';
 import UrlHash from './constants/UrlHash';
 import SearchLineComponent from './components/searchLineComponent';
+import FilmCardComponent from './components/filmCardComponent';
 import Controller from '../controller/controller';
 import FilmsManagement from './interfaces/filmsManagement';
 import FilmModel from '../models/filmModel';
 import ResponseErrorView from '../views/responseErrorView';
 import SectionID from './constants/SectionID';
 import heartIcon from '../assets/icons/heart.png';
-import FilmCardComponent from './components/filmCardComponent';
+import githubIcon from '../assets/icons/github.png';
 
 export default class Router {
   private controller: Controller;
@@ -95,6 +96,7 @@ export default class Router {
 
     const invisibleDiv: HTMLElement = document.createElement('div');
     invisibleDiv.setAttribute('id', 'invisibleDiv');
+
     const title: HTMLElement = document.createElement('h1');
     title.setAttribute('id', 'title');
     title.textContent = i18next.t('MovieSearch');
@@ -126,15 +128,24 @@ export default class Router {
   }
 
   private renderFooter(): HTMLElement {
-    const container: HTMLElement = document.createElement('div');
-    const innowiseLabel = document.createTextNode('Innowise Group');
-    const gitLabel = document.createElement('a');
+    const container = document.createElement('div');
 
+    const innowiseLabel = document.createTextNode('Innowise Group');
+
+    const gitIcon = document.createElement('img');
+    gitIcon.src = githubIcon;
+    gitIcon.setAttribute('class', 'git-icon');
+
+    const gitLabel = document.createElement('a');
     gitLabel.textContent = 'Nyorikenoichi';
     gitLabel.href = 'https://github.com/Nyorikenoichi';
-    gitLabel.setAttribute('id', 'gitLabel');
+    gitLabel.setAttribute('class', 'git-label');
 
-    container.append(innowiseLabel, gitLabel);
+    const gitWrapper = document.createElement('div');
+    gitWrapper.setAttribute('class', 'git-wrapper');
+    gitWrapper.append(gitIcon, gitLabel);
+
+    container.append(innowiseLabel, gitWrapper);
     return container;
   }
 
