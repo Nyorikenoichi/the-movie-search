@@ -23,8 +23,8 @@ export default class FilmsRepository extends Repository {
       const filmsDetailInfo = await Promise.all(detailInfoResponse.map((film) => film.json()));
       films.Search.map((film, index) => {
         const filmWithRating = Object.assign(film);
-        const rating = filmsDetailInfo[index].Ratings[0].Value;
-        [filmWithRating.Rating] = rating.split('/');
+        const rating = filmsDetailInfo[index].imdbRating;
+        filmWithRating.Rating = rating;
         return filmWithRating;
       });
 
