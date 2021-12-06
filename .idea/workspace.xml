@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154ebf74-2b4c-4c71-a8b2-acfb77888ecd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/fonts/Revalia-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/fonts/fontFaces.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/common/filmCard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/filmCard.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/common/slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/slider.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/components/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/components/footer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/pages/favoritesOverlay.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/pages/favoritesOverlay.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/global/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/global/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,11 +48,15 @@
     <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="20Q4DdWMjgHYep7rLIKBGPQ8jyb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -121,7 +125,11 @@
       <workItem from="1638165505992" duration="21387000" />
       <workItem from="1638349814522" duration="4396000" />
       <workItem from="1638367670266" duration="7076000" />
-      <workItem from="1638720792877" duration="9906000" />
+      <workItem from="1638720792877" duration="10390000" />
+      <workItem from="1638769166650" duration="601000" />
+      <workItem from="1638773400194" duration="1074000" />
+      <workItem from="1638779856822" duration="2642000" />
+      <workItem from="1638787417168" duration="766000" />
     </task>
     <servers />
   </component>
@@ -139,5 +147,8 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
