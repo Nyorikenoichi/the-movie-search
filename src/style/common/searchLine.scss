@@ -1,0 +1,31 @@
+.search-wrapper{
+  width: 80%;
+  height: 50px;
+  margin-bottom: 30px;
+}
+
+.search-form{
+  display: flex;
+  width: 100%;
+  background-color: $background-dark;
+  border-radius: 30px;
+  padding: 7px;
+}
+
+.search-input {
+  width: 95%;
+  padding-left: 50px;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: 'Revalia', serif;
+  font-size: 20px;
+}
+
+.search-submit {
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}

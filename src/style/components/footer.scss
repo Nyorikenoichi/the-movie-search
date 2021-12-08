@@ -3,9 +3,10 @@
   justify-content: space-around;
   align-items: center;
 
-  height: 5%;
+  height: 40px;
 
-  background: $backgroundDark;
+  font-size: 15px;
+  background: $background-dark;
 }
 
 .git-wrapper{
@@ -14,7 +15,8 @@
 }
 
 .git-label {
-  color: $text;
+  color: $text-color;
+  text-decoration: none;
   margin-left: 5px;
 }
 

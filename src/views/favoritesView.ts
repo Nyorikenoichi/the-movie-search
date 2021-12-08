@@ -16,10 +16,13 @@ export default class FavoritesView extends View<{
     this.clear();
 
     const favoritesTitle = document.createElement('h2');
-    favoritesTitle.innerText = i18next.t('Favorites');
+    favoritesTitle.setAttribute('class', 'favorites-label');
+    favoritesTitle.textContent = i18next.t('Favorites');
+
     const favoritesList = new FilmListComponent().render({
       films,
       filmsManagement,
+      containerClass: 'favorites-list',
     });
 
     this.container.append(favoritesTitle, favoritesList);

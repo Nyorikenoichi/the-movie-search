@@ -8,22 +8,30 @@
   width: 0;
   right: 0;
   z-index: 20;
-  background-color: $backgroundDark;
+  background-color: $background-dark;
   transition: 0.5s;
+
+
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: $background-light;
+  }
+
 }
 
 #favorites {
   position: relative;
-  width: 300px;
-  text-align: center;
+  width: 60%;
   margin-top: 30px;
+  text-align: center;
 }
 
-::-webkit-scrollbar {
-  width: 15px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: $backgroundLight;
+.favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

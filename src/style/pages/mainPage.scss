@@ -1,40 +1,13 @@
 #content {
   position: relative;
-  background: $backgroundLight;
-  height: 85%;
+  background: $background-light;
+  overflow: auto;
+  flex: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-width: 0;
-}
-
-.search-wrapper{
-  margin-bottom: 30px;
-  width: 400px;
-}
-
-.search-form{
-  display: flex;
-  width: 100%;
-  background-color: $backgroundDark;
-  border-radius: 30px;
-  padding: 7px;
-}
-
-.search-input {
-  width: 80%;
-  border: none;
-  outline: none;
-  background: none;
-}
-
-.search-submit {
-  transition: all .2s ease-in-out;
-}
-
-.search-submit:hover {
-  transform: scale(1.2);
 }
 
 #responseError {
@@ -45,4 +18,6 @@
 #filmsList {
   display: flex;
   justify-content: center;
+  width: 70%;
+  height: 55%;
 }

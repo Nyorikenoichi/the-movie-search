@@ -23,9 +23,14 @@ export default class FilmCardComponent extends Component<{
     poster.setAttribute('class', 'movie-card-poster')
     poster.src = film.getImgSrc();
 
+    const infoFirstRow = document.createElement('div');
+    infoFirstRow.setAttribute('class', 'movie-card-info-row-1')
 
-    const infoContainer = document.createElement('div');
-    infoContainer.setAttribute('class', 'movie-card-info')
+    const infoSecondRow = document.createElement('div');
+    infoSecondRow.setAttribute('class', 'movie-card-info-row-2')
+
+    const invisibleDiv = document.createElement('div');
+    invisibleDiv.setAttribute('class', 'movie-card-invisible-div');
 
     const addToFavoritesButton = document.createElement('img');
     if (filmsManagement.findInFavorites(film)) {
@@ -50,9 +55,6 @@ export default class FilmCardComponent extends Component<{
     year.setAttribute('class', 'movie-card-year');
     year.textContent = film.getYear();
 
-    const rating = document.createElement('div');
-    rating.setAttribute('class', 'movie-card-rating');
-
     const starImg = document.createElement('img');
     starImg.setAttribute('class', 'movie-card-star');
     starImg.src = starIcon;
@@ -60,10 +62,10 @@ export default class FilmCardComponent extends Component<{
     const ratingLabel = document.createElement('div');
     ratingLabel.setAttribute('class', 'movie-card-rating-label');
     ratingLabel.textContent = film.getRating();
-    rating.append(starImg, ratingLabel);
 
-    infoContainer.append(addToFavoritesButton, year, rating);
-    slide.append(title, poster, infoContainer);
+    infoFirstRow.append(invisibleDiv, year, addToFavoritesButton);
+    infoSecondRow.append(starImg, ratingLabel)
+    slide.append(title, poster, infoFirstRow, infoSecondRow);
     return slide;
   }
 }

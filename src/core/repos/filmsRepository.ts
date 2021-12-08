@@ -14,7 +14,14 @@ export default class FilmsRepository extends Repository {
       const response = await fetch(
         Repository.Urls.filmsPage(searchRequest, page),
       );
+
       const films: GetFilmsResults<Film[]> = await response.json();
+
+      if(!films.Search) {
+        return {
+          Error: films.Error,
+        }
+      }
 
       const additionalPromises = films.Search.map((film) => fetch(Repository.Urls.filmInfo(film.imdbID)));
 
@@ -27,7 +34,6 @@ export default class FilmsRepository extends Repository {
         filmWithRating.Rating = rating;
         return filmWithRating;
       });
-
       return films;
     } catch (err: Error | unknown) {
       if (err instanceof Error) {

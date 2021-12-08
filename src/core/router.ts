@@ -130,7 +130,7 @@ export default class Router {
   private renderFooter(): HTMLElement {
     const container = document.createElement('div');
 
-    const innowiseLabel = document.createTextNode('Innowise Group');
+    const innowiseLabel = document.createTextNode(i18next.t('InnowiseGroup'));
 
     const gitIcon = document.createElement('img');
     gitIcon.src = githubIcon;

@@ -46,7 +46,7 @@ export default class FilmsListView extends View<{
       pagination: {
         el: '.swiper-pagination',
         dynamicBullets: true,
-        dynamicMainBullets: 2,
+        dynamicMainBullets: 3,
       },
       navigation: {
         prevEl: '.swiper-button-prev',
