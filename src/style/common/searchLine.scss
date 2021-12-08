@@ -20,9 +20,26 @@
   background: none;
   font-family: 'Revalia', serif;
   font-size: 20px;
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration { display: none; }
+}
+
+.search-clear {
+  width: 35px;
+  height: 35px;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .search-submit {
+  width: 35px;
+  height: 35px;
   transition: all .2s ease-in-out;
 
   &:hover {

@@ -1,5 +1,6 @@
 .movie-card {
   width: 200px;
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -60,6 +61,10 @@
   justify-content: center;
 }
 
+.movie-card-star {
+  width: 25px;
+  height: 25px;
+}
 
 .movie-card-rating-label {
   vertical-align: middle;
