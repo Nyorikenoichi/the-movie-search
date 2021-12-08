@@ -62,10 +62,18 @@ export default class Controller {
   }
 
   public async addFilms(): Promise<void> {
+    const fetchStart = document.createEvent("Event");
+    fetchStart.initEvent('fetchStart', true, false);
+
+    const fetchEnd = document.createEvent("Event");
+    fetchEnd.initEvent('fetchEnd', true, false);
+
+    document.dispatchEvent(fetchStart);
     const filmsToAdd = await this.service.getFilmsPage(
       this.currentSearchRequest,
       this.currentFilmsPage,
     );
+    document.dispatchEvent(fetchEnd);
     if (filmsToAdd.Error) {
       this.router.renderResponseError(filmsToAdd.Error);
     } else {

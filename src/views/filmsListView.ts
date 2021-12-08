@@ -15,34 +15,31 @@ export default class FilmsListView extends View<{
     }
     this.clear();
 
+    const loaderSpinner = document.createElement('div');
+    loaderSpinner.setAttribute('class', 'swiper-loader-spinner');
+
+    const loader = document.createElement('div');
+    loader.setAttribute('class', 'swiper-loader');
+    loader.append(loaderSpinner)
+
+    document.addEventListener('fetchStart', () => loader.style.opacity = '1');
+    document.addEventListener('fetchEnd', () => loader.style.opacity = '0');
+
     const filmsSlider = new FilmSliderComponent().render({
       films,
       filmsManagement,
     });
 
-    this.container.append(filmsSlider)
+    this.container.append(loader, filmsSlider)
     this.initializeSlider(filmsManagement.addFilms);
   }
 
-  private initializeSlider(addFilms: () => Promise<void>): void{
+  private initializeSlider(addFilms: () => Promise<void>): void {
     Swiper.use([Navigation, Pagination]);
     const slider = new Swiper('.swiper', {
       slidesPerView: 1,
       spaceBetween: 10,
-      breakpoints: {
-        500: {
-          slidesPerView: 2,
-          spaceBetween: 20
-        },
-        750: {
-          slidesPerView: 3,
-          spaceBetween: 30
-        },
-        1000: {
-          slidesPerView: 4,
-          spaceBetween: 40
-        },
-      },
+      breakpoints: FilmsListView.sliderBreakpoints,
       pagination: {
         el: '.swiper-pagination',
         dynamicBullets: true,
@@ -60,6 +57,21 @@ export default class FilmsListView extends View<{
         },
       },
     });
+  }
+
+  private static sliderBreakpoints = {
+    500: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    750: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    },
+    1000: {
+      slidesPerView: 4,
+      spaceBetween: 40
+    },
   }
 
   public clear(): void {

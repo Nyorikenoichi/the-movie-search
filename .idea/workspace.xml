@@ -6,14 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="154ebf74-2b4c-4c71-a8b2-acfb77888ecd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/icons/heart.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/heart.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/icons/heart_empty.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/heart_empty.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/icons/search.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/search.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/icons/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/star.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/components/searchLineComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/searchLineComponent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/common/filmCard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/filmCard.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/common/searchLine.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/searchLine.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/common/slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/slider.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/pages/favoritesOverlay.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/pages/favoritesOverlay.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/pages/mainPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/pages/mainPage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/filmsListView.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/filmsListView.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +132,8 @@
       <workItem from="1638773400194" duration="1074000" />
       <workItem from="1638779856822" duration="2642000" />
       <workItem from="1638787417168" duration="5846000" />
-      <workItem from="1638946002864" duration="13678000" />
+      <workItem from="1638946002864" duration="20447000" />
+      <workItem from="1638981069174" duration="632000" />
     </task>
     <servers />
   </component>

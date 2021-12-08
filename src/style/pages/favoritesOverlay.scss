@@ -11,7 +11,6 @@
   background-color: $background-dark;
   transition: 0.5s;
 
-
   &::-webkit-scrollbar {
     width: 15px;
   }
@@ -20,7 +19,6 @@
     border-radius: 10px;
     background: $background-light;
   }
-
 }
 
 #favorites {
@@ -33,5 +31,5 @@
 .favorites-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
