@@ -1,4 +1,3 @@
-import i18next from 'i18next';
 import Component from '../component';
 import FilmModel from '../../models/filmModel';
 import FilmsManagement from '../interfaces/filmsManagement';
@@ -9,16 +8,15 @@ export default class FilmListComponent extends Component<{
   filmsManagement: FilmsManagement;
   containerClass: string;
 }> {
-  public render({ films,  filmsManagement, containerClass }): HTMLElement {
+  public render({ films, filmsManagement, containerClass }): HTMLElement {
     const filmsListComponent: HTMLElement = document.createElement('div');
     filmsListComponent.setAttribute('class', containerClass);
-    if (films.length != 0){
+    if (films.length !== 0) {
       films.forEach((film) => {
         const listElement: HTMLElement = new FilmCardComponent().render({ film, filmsManagement });
         filmsListComponent.append(listElement);
       });
-    }
-    else {
+    } else {
       filmsListComponent.append(document.createTextNode('No favorites...'));
     }
 

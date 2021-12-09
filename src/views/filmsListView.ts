@@ -20,17 +20,17 @@ export default class FilmsListView extends View<{
 
     const loader = document.createElement('div');
     loader.setAttribute('class', 'swiper-loader');
-    loader.append(loaderSpinner)
+    loader.append(loaderSpinner);
 
-    document.addEventListener('fetchStart', () => loader.style.opacity = '1');
-    document.addEventListener('fetchEnd', () => loader.style.opacity = '0');
+    document.addEventListener('fetchStart', () => { loader.style.opacity = '1'; });
+    document.addEventListener('fetchEnd', () => { loader.style.opacity = '0'; });
 
     const filmsSlider = new FilmSliderComponent().render({
       films,
       filmsManagement,
     });
 
-    this.container.append(loader, filmsSlider)
+    this.container.append(loader, filmsSlider);
     this.initializeSlider(filmsManagement.addFilms);
   }
 
@@ -51,7 +51,7 @@ export default class FilmsListView extends View<{
       },
       on: {
         slideChange: () => {
-          if(slider.isEnd) {
+          if (slider.isEnd) {
             addFilms().then(() => slider.update());
           }
         },
@@ -62,17 +62,17 @@ export default class FilmsListView extends View<{
   private static sliderBreakpoints = {
     500: {
       slidesPerView: 2,
-      spaceBetween: 20
+      spaceBetween: 20,
     },
     750: {
       slidesPerView: 3,
-      spaceBetween: 30
+      spaceBetween: 30,
     },
     1000: {
       slidesPerView: 4,
-      spaceBetween: 40
+      spaceBetween: 40,
     },
-  }
+  };
 
   public clear(): void {
     this.container.innerHTML = '';

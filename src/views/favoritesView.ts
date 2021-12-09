@@ -26,13 +26,13 @@ export default class FavoritesView extends View<{
     });
 
     this.container.append(favoritesTitle, favoritesList);
-    const overlay = document.querySelector(".overlay") as HTMLElement;
+    const overlay = document.querySelector('.overlay') as HTMLElement;
     overlay.style.width = '50%';
   }
 
   public clear(): void {
     this.container.innerHTML = '';
-    const overlay = document.querySelector(".overlay") as HTMLElement;
+    const overlay = document.querySelector('.overlay') as HTMLElement;
     overlay.style.width = '0%';
   }
 }

@@ -1,11 +1,7 @@
-import i18next from 'i18next';
 import Component from '../component';
 import FilmModel from '../../models/filmModel';
 import FilmsManagement from '../interfaces/filmsManagement';
 import FilmCardComponent from './filmCardComponent';
-import starIcon from '../../assets/icons/star.png';
-import heartIcon from '../../assets/icons/heart.png';
-import heartEmptyIcon from '../../assets/icons/heart_empty.png';
 
 export default class FilmSliderComponent extends Component<{
   films: FilmModel[];

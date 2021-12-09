@@ -62,10 +62,10 @@ export default class Controller {
   }
 
   public async addFilms(): Promise<void> {
-    const fetchStart = document.createEvent("Event");
+    const fetchStart = document.createEvent('Event');
     fetchStart.initEvent('fetchStart', true, false);
 
-    const fetchEnd = document.createEvent("Event");
+    const fetchEnd = document.createEvent('Event');
     fetchEnd.initEvent('fetchEnd', true, false);
 
     document.dispatchEvent(fetchStart);
@@ -86,7 +86,7 @@ export default class Controller {
         addFilms: this.addFilms.bind(this),
       };
 
-      if(this.currentFilmsPage === 1){
+      if (this.currentFilmsPage === 1) {
         this.handleHash();
       } else {
         this.router.addFilmsToSlider(filmsToAdd.Search, filmsManagement);

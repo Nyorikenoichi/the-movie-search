@@ -1,4 +1,3 @@
-import i18next from 'i18next';
 import Component from '../component';
 import FilmModel from '../../models/filmModel';
 import FilmsManagement from '../interfaces/filmsManagement';
@@ -20,14 +19,14 @@ export default class FilmCardComponent extends Component<{
     title.href = `https://www.imdb.com/title/${film.getImdbID()}`;
 
     const poster = document.createElement('img');
-    poster.setAttribute('class', 'movie-card-poster')
+    poster.setAttribute('class', 'movie-card-poster');
     poster.src = film.getImgSrc();
 
     const infoFirstRow = document.createElement('div');
-    infoFirstRow.setAttribute('class', 'movie-card-info-row-1')
+    infoFirstRow.setAttribute('class', 'movie-card-info-row-1');
 
     const infoSecondRow = document.createElement('div');
-    infoSecondRow.setAttribute('class', 'movie-card-info-row-2')
+    infoSecondRow.setAttribute('class', 'movie-card-info-row-2');
 
     const invisibleDiv = document.createElement('div');
     invisibleDiv.setAttribute('class', 'movie-card-invisible-div');
@@ -64,7 +63,7 @@ export default class FilmCardComponent extends Component<{
     ratingLabel.textContent = film.getRating();
 
     infoFirstRow.append(invisibleDiv, year, addToFavoritesButton);
-    infoSecondRow.append(starImg, ratingLabel)
+    infoSecondRow.append(starImg, ratingLabel);
     slide.append(title, poster, infoFirstRow, infoSecondRow);
     return slide;
   }

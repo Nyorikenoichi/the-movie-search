@@ -17,10 +17,10 @@ export default class FilmsRepository extends Repository {
 
       const films: GetFilmsResults<Film[]> = await response.json();
 
-      if(!films.Search) {
+      if (!films.Search) {
         return {
           Error: films.Error,
-        }
+        };
       }
 
       const additionalPromises = films.Search.map((film) => fetch(Repository.Urls.filmInfo(film.imdbID)));
