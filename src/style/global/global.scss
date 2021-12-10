@@ -1,6 +1,4 @@
 html, body, #root {
-  height: 100%;
-  width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -10,6 +8,7 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  overflow: hidden;
 }
 
 #header {
@@ -19,6 +18,14 @@ html, body, #root {
   height: 100px;
   padding: 0 100px;
   background: $background-dark;
+  @include media-mobile {
+    justify-content: space-around;
+    padding: 0 20px;
+
+    .invisibleDiv {
+      display: none;
+    }
+  }
 }
 
 #favorites {
@@ -36,8 +43,10 @@ html, body, #root {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: calc(100vh - 140px);
   padding: 0 160px;
   background: $background-light;
+
 
   @include laptop-l {
     padding: 0 120px;
@@ -69,4 +78,14 @@ html, body, #root {
 
   font-size: 15px;
   background: $background-dark;
+
+  @include media-mobile {
+    height: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .git-wrapper{
+      width: 100%;
+    }
+  }
 }

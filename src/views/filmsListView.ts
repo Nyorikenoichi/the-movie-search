@@ -9,21 +9,6 @@ export default class FilmsListView extends View<{
   films: FilmModel[];
   filmsManagement: FilmsManagement;
 }> {
-  private static sliderBreakpoints = {
-    800: {
-      slidesPerView: 2,
-      spaceBetween: 20,
-    },
-    1000: {
-      slidesPerView: 3,
-      spaceBetween: 30,
-    },
-    1440: {
-      slidesPerView: 4,
-      spaceBetween: 40,
-    },
-  };
-
   public render({ films, filmsManagement }): void {
     if (!this.container) {
       this.container = this.root.querySelector(SectionID.filmsList);
@@ -79,6 +64,29 @@ export default class FilmsListView extends View<{
       },
     });
   }
+
+  private static sliderBreakpoints = {
+    425: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    1440: {
+      slidesPerView: 4,
+      spaceBetween: 40,
+    },
+    1800: {
+      slidesPerView: 5,
+      spaceBetween: 50,
+    }
+  };
 
   public clear(): void {
     this.container.innerHTML = '';
