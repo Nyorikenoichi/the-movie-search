@@ -1,12 +1,12 @@
 enum SectionID {
-  filmsList = '#filmsList',
+  filmsList = '.filmsList',
   overlay = '.overlay',
   favorites = '#favorites',
-  search = '#search-wrapper',
+  search = '.search-wrapper',
   header = '#header',
   content = '#content',
   footer = '#footer',
-  responseError = '#responseError',
+  responseError = '.responseError',
 }
 
 export default SectionID;

@@ -11,6 +11,7 @@ import ResponseErrorView from '../views/responseErrorView';
 import SectionID from './constants/SectionID';
 import heartIcon from '../assets/icons/heart.png';
 import githubIcon from '../assets/icons/github.png';
+import aboutDev from './other/aboutDev';
 
 export default class Router {
   private controller: Controller;
@@ -95,10 +96,10 @@ export default class Router {
     const container: HTMLElement = document.createElement('div');
 
     const invisibleDiv: HTMLElement = document.createElement('div');
-    invisibleDiv.setAttribute('id', 'invisibleDiv');
+    invisibleDiv.setAttribute('class', 'invisibleDiv');
 
     const title: HTMLElement = document.createElement('h1');
-    title.setAttribute('id', 'title');
+    title.setAttribute('class', 'title');
     title.textContent = i18next.t('MovieSearch');
 
     const openFavorites = document.createElement('img');
@@ -106,7 +107,7 @@ export default class Router {
       'mousedown',
       this.switchFavorites.bind(this),
     );
-    openFavorites.setAttribute('id', 'switchFavorites');
+    openFavorites.setAttribute('class', 'switchFavorites');
     openFavorites.src = heartIcon;
 
     container.append(invisibleDiv, title, openFavorites);
@@ -137,8 +138,8 @@ export default class Router {
     gitIcon.setAttribute('class', 'git-icon');
 
     const gitLabel = document.createElement('a');
-    gitLabel.textContent = 'Nyorikenoichi';
-    gitLabel.href = 'https://github.com/Nyorikenoichi';
+    gitLabel.textContent = aboutDev.nickname;
+    gitLabel.href = aboutDev.github;
     gitLabel.setAttribute('class', 'git-label');
 
     const gitWrapper = document.createElement('div');
@@ -169,11 +170,11 @@ export default class Router {
     footerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.footer));
     searchDiv.setAttribute('class', this.hashWithoutPoundSign(SectionID.search));
     responseErrorDiv.setAttribute(
-      'id',
+      'class',
       this.hashWithoutPoundSign(SectionID.responseError),
     );
     filmsListDiv.setAttribute(
-      'id',
+      'class',
       this.hashWithoutPoundSign(SectionID.filmsList),
     );
     favoritesDiv.setAttribute(

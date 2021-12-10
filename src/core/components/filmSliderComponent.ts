@@ -21,12 +21,7 @@ export default class FilmSliderComponent extends Component<{
     const pagination = document.createElement('div');
     pagination.setAttribute('class', 'swiper-pagination');
 
-    const buttonPrev = document.createElement('div');
-    const buttonNext = document.createElement('div');
-    buttonPrev.setAttribute('class', 'swiper-button-prev');
-    buttonNext.setAttribute('class', 'swiper-button-next');
-
-    container.append(wrapper, pagination, buttonPrev, buttonNext);
+    container.append(wrapper, pagination);
     return container;
   }
 }

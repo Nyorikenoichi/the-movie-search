@@ -1,25 +1,17 @@
 $favorites-button-size: 40px;
 
-#header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100px;
-  background: $background-dark;
-}
-
-#invisibleDiv {
+.invisibleDiv {
   height: $favorites-button-size;
   width: $favorites-button-size;
 }
 
-#title {
+.title {
   font-size: 30px;
   line-height: 40px;
   color: $text-color;
 }
 
-#switchFavorites {
+.switchFavorites {
   height: $favorites-button-size;
   width: $favorites-button-size;
   transition: all .2s ease-in-out;

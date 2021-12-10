@@ -1,6 +1,8 @@
+$icon-size: 25px;
+
 .movie-card {
   width: 200px;
-  margin-bottom: 10px;
+  margin-bottom: 10px;;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -35,8 +37,8 @@
 }
 
 .movie-card-invisible-div {
-  height: 25px;
-  width: 25px;
+  height: $icon-size;
+  width: $icon-size;
 }
 
 .movie-card-year {
@@ -46,8 +48,8 @@
 }
 
 .movie-card-add-button {
-  height: 25px;
-  width: 25px;
+  height: $icon-size;
+  width: $icon-size;
   transition: all .2s ease-in-out;
 
   &:hover {
@@ -62,8 +64,8 @@
 }
 
 .movie-card-star {
-  width: 25px;
-  height: 25px;
+  width: $icon-size;
+  height: $icon-size;
 }
 
 .movie-card-rating-label {

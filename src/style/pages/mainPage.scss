@@ -1,25 +1,19 @@
-#content {
-  position: relative;
-  background: $background-light;
-  overflow: auto;
-  flex: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-}
-
-#responseError {
+.responseError {
   height: 30px;
   margin-bottom: 20px;
   font-size: 23px;
 }
 
-#filmsList {
+.search-wrapper{
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.filmsList {
   position: relative;
   display: flex;
   justify-content: center;
-  width: 65%;
-  height: 55%;
+  align-items: center;
+  height: 480px;
+  width: 85%;
 }

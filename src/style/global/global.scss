@@ -9,4 +9,64 @@ html, body, #root {
   font-family: 'Revalia', serif;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  padding: 0 100px;
+  background: $background-dark;
+}
+
+#favorites {
+  position: relative;
+  width: 80%;
+  margin-top: 30px;
+  text-align: center;
+}
+
+#content {
+  position: relative;
+  overflow: auto;
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 160px;
+  background: $background-light;
+
+  @include laptop-l {
+    padding: 0 120px;
+  }
+
+  @include media-laptop {
+    padding: 0 100px;
+  }
+
+  @include media-tablet {
+    padding: 0 80px;
+  }
+
+  @include media-mobile {
+    padding: 0 60px;
+  }
+
+  @include media-mobile-small {
+    padding: 0 30px;
+  }
+}
+
+#footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 40px;
+
+  font-size: 15px;
+  background: $background-dark;
 }

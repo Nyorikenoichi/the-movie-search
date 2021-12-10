@@ -9,6 +9,21 @@ export default class FilmsListView extends View<{
   films: FilmModel[];
   filmsManagement: FilmsManagement;
 }> {
+  private static sliderBreakpoints = {
+    800: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1000: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    1440: {
+      slidesPerView: 4,
+      spaceBetween: 40,
+    },
+  };
+
   public render({ films, filmsManagement }): void {
     if (!this.container) {
       this.container = this.root.querySelector(SectionID.filmsList);
@@ -22,15 +37,21 @@ export default class FilmsListView extends View<{
     loader.setAttribute('class', 'swiper-loader');
     loader.append(loaderSpinner);
 
-    document.addEventListener('fetchStart', () => { loader.style.opacity = '1'; });
-    document.addEventListener('fetchEnd', () => { loader.style.opacity = '0'; });
+    document.addEventListener('fetchStart', () => { loader.style.display = 'flex'; });
+    document.addEventListener('fetchEnd', () => { loader.style.display = 'none'; });
 
     const filmsSlider = new FilmSliderComponent().render({
       films,
       filmsManagement,
     });
 
-    this.container.append(loader, filmsSlider);
+    const sliderButtonPrev = document.createElement('div');
+    const sliderButtonNext = document.createElement('div');
+    sliderButtonPrev.setAttribute('class', 'swiper-button-prev');
+    sliderButtonNext.setAttribute('class', 'swiper-button-next');
+
+
+    this.container.append(loader, sliderButtonPrev, filmsSlider, sliderButtonNext);
     this.initializeSlider(filmsManagement.addFilms);
   }
 
@@ -58,21 +79,6 @@ export default class FilmsListView extends View<{
       },
     });
   }
-
-  private static sliderBreakpoints = {
-    500: {
-      slidesPerView: 2,
-      spaceBetween: 20,
-    },
-    750: {
-      slidesPerView: 3,
-      spaceBetween: 30,
-    },
-    1000: {
-      slidesPerView: 4,
-      spaceBetween: 40,
-    },
-  };
 
   public clear(): void {
     this.container.innerHTML = '';
