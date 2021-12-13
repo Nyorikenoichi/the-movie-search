@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154ebf74-2b4c-4c71-a8b2-acfb77888ecd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/style/constants/mixins.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/components/filmCardComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/filmCardComponent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/components/filmSliderComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/filmSliderComponent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/router.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/common/filmCard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/filmCard.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/common/searchLine.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/searchLine.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/common/slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/slider.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/components/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/components/header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/global/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/global/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/index.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +141,7 @@
       <workItem from="1639137544434" duration="14247000" />
       <workItem from="1639375232987" duration="7135000" />
       <workItem from="1639400244527" duration="81000" />
-      <workItem from="1639400338552" duration="3293000" />
+      <workItem from="1639400338552" duration="4941000" />
     </task>
     <servers />
   </component>

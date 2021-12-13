@@ -51,6 +51,8 @@
   margin-bottom: 100px;
   color: $text-color;
   font-weight: bold;
+
+  @include scale-on-hover;
 }
 
 .swiper-button-prev {

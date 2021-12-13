@@ -26,19 +26,13 @@ $search-icon-size: 35px;
 .search-clear {
   width: $search-icon-size;
   height: $search-icon-size;
-  transition: all .2s ease-in-out;
 
-  &:hover {
-    transform: scale(1.2);
-  }
+  @include scale-on-hover;
 }
 
 .search-submit {
   width: $search-icon-size;
   height: $search-icon-size;
-  transition: all .2s ease-in-out;
 
-  &:hover {
-    transform: scale(1.2);
-  }
+  @include scale-on-hover;
 }

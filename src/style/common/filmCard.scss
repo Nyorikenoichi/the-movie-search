@@ -52,11 +52,8 @@ $poster-height: 300px;
 .movie-card-add-button {
   height: $icon-size;
   width: $icon-size;
-  transition: all .2s ease-in-out;
 
-  &:hover {
-    transform: scale(1.2);
-  }
+  @include scale-on-hover;
 }
 
 .movie-card-info-row-2{
