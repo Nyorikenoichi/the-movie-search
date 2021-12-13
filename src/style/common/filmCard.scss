@@ -1,7 +1,9 @@
 $icon-size: 25px;
+$card-width: 200px;
+$poster-height: 300px;
 
 .movie-card {
-  width: 200px;
+  width: $card-width;
   margin-bottom: 10px;;
   display: flex;
   flex-direction: column;
@@ -18,14 +20,14 @@ $icon-size: 25px;
   overflow: hidden;
   text-overflow: ellipsis;
   text-decoration: underline;
-  color: $text-color;
+  color: $text-color;;
 }
 
 .movie-card-poster {
   border-radius: 30px;
   object-fit: cover;
   width: 200px;
-  height: 300px;
+  height: $poster-height;
   margin-bottom: 10px;
 }
 

@@ -1,9 +1,10 @@
 {
-  "MovieSearch": "MovieSearch",
+  "ProjectTitle": "MovieSearch",
   "Search": "Search",
   "Favorites": "Favorites:",
+  "NoFavorites": "NoFavorites",
   "Add": "Add",
   "Remove": "Remove",
   "UnknownError": "Unknown error",
-  "InnowiseGroup": "Innowise Group"
+  "CompanyName": "Innowise Group"
 }

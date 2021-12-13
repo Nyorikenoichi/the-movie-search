@@ -67,7 +67,7 @@ export default class Router {
   }
 
   public addFilmsToSlider(films: FilmModel[], filmsManagement: FilmsManagement): void {
-    const sliderWrapper = document.querySelector('.swiper-wrapper');
+    const sliderWrapper = this.root.querySelector('.swiper-wrapper');
     films.forEach((film) => {
       const filmCard = new FilmCardComponent().render({ film, filmsManagement });
       sliderWrapper.append(filmCard);
@@ -100,7 +100,7 @@ export default class Router {
 
     const title: HTMLElement = document.createElement('h1');
     title.setAttribute('class', 'title');
-    title.textContent = i18next.t('MovieSearch');
+    title.textContent = i18next.t('ProjectTitle');
 
     const openFavorites = document.createElement('img');
     openFavorites.addEventListener(
@@ -131,7 +131,7 @@ export default class Router {
   private renderFooter(): HTMLElement {
     const container = document.createElement('div');
 
-    const innowiseLabel = document.createTextNode(i18next.t('InnowiseGroup'));
+    const innowiseLabel = document.createTextNode(i18next.t('CompanyName'));
 
     const gitIcon = document.createElement('img');
     gitIcon.src = githubIcon;

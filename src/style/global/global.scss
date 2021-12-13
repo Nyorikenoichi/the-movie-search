@@ -15,7 +15,7 @@ html, body, #root {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: $header-height;
   padding: 0 100px;
   background: $background-dark;
   @include media-mobile {
@@ -74,7 +74,7 @@ html, body, #root {
   justify-content: space-around;
   align-items: center;
 
-  height: 40px;
+  height: $header-height;
 
   font-size: 15px;
   background: $background-dark;

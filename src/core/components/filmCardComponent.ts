@@ -17,6 +17,7 @@ export default class FilmCardComponent extends Component<{
     title.setAttribute('class', 'movie-card-title');
     title.textContent = film.getTitle();
     title.href = `https://www.imdb.com/title/${film.getImdbID()}`;
+    title.target = "_blank";
 
     const poster = document.createElement('img');
     poster.setAttribute('class', 'movie-card-poster');
