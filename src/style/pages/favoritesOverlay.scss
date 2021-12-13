@@ -21,6 +21,14 @@
   }
 }
 
+.overlay-show {
+  width: 50%;
+
+  @include media-mobile {
+    width: 75%;
+  }
+}
+
 .favorites-list {
   display: flex;
   flex-wrap: wrap;

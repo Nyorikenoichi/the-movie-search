@@ -10,10 +10,9 @@ export default class FavoritesView extends View<{
   filmsManagement: FilmsManagement;
 }> {
   public render({ films, filmsManagement }): void {
-    if (!this.container) {
-      this.container = this.root.querySelector(SectionID.favorites);
-    }
     this.clear();
+    const overlay = document.querySelector('.overlay') as HTMLElement;
+    overlay.classList.add('overlay-show');
 
     const favoritesTitle = document.createElement('h2');
     favoritesTitle.setAttribute('class', 'favorites-label');
@@ -26,13 +25,12 @@ export default class FavoritesView extends View<{
     });
 
     this.container.append(favoritesTitle, favoritesList);
-    const overlay = document.querySelector('.overlay') as HTMLElement;
-    overlay.style.width = '50%';
+
   }
 
   public clear(): void {
     this.container.innerHTML = '';
     const overlay = document.querySelector('.overlay') as HTMLElement;
-    overlay.style.width = '0%';
+    overlay.classList.remove('overlay-show');
   }
 }

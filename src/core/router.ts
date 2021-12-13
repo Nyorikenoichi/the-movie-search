@@ -66,6 +66,14 @@ export default class Router {
     }
   }
 
+  public showLoader(){
+    this.filmsListView.showLoader();
+  }
+
+  public hideLoader(){
+    this.filmsListView.hideLoader();
+  }
+
   public addFilmsToSlider(films: FilmModel[], filmsManagement: FilmsManagement): void {
     const sliderWrapper = this.root.querySelector('.swiper-wrapper');
     films.forEach((film) => {
@@ -182,6 +190,11 @@ export default class Router {
       'id',
       this.hashWithoutPoundSign(SectionSelectors.favorites),
     );
+
+    this.filmsListView.container = filmsListDiv;
+    this.favoritesView.container =favoritesDiv;
+    this.responseErrorView.container = responseErrorDiv;
+    this.filmsListView.appendLoader();
 
     overlayDiv.append(favoritesDiv);
     contentDiv.append(overlayDiv, searchDiv, responseErrorDiv, filmsListDiv);

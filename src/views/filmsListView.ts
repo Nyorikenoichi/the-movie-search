@@ -4,6 +4,7 @@ import SectionID from '../core/constants/SectionSelectors';
 import FilmModel from '../models/filmModel';
 import FilmsManagement from '../core/interfaces/filmsManagement';
 import FilmSliderComponent from '../core/components/filmSliderComponent';
+import LoaderComponent from '../core/components/loaderComponent';
 
 export default class FilmsListView extends View<{
   films: FilmModel[];
@@ -15,15 +16,7 @@ export default class FilmsListView extends View<{
     }
     this.clear();
 
-    const loaderSpinner = document.createElement('div');
-    loaderSpinner.setAttribute('class', 'swiper-loader-spinner');
-
-    const loader = document.createElement('div');
-    loader.setAttribute('class', 'swiper-loader');
-    loader.append(loaderSpinner);
-
-    document.addEventListener('fetchStart', () => { loader.style.display = 'flex'; });
-    document.addEventListener('fetchEnd', () => { loader.style.display = 'none'; });
+    this.appendLoader();
 
     const filmsSlider = new FilmSliderComponent().render({
       films,
@@ -36,7 +29,7 @@ export default class FilmsListView extends View<{
     sliderButtonNext.setAttribute('class', 'swiper-button-next');
 
 
-    this.container.append(loader, sliderButtonPrev, filmsSlider, sliderButtonNext);
+    this.container.append(sliderButtonPrev, filmsSlider, sliderButtonNext);
     this.initializeSlider(filmsManagement.addFilms);
   }
 
