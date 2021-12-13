@@ -11,7 +11,7 @@ export default class FilmCardComponent extends Component<{
 }> {
   public render({ film, filmsManagement }): HTMLElement {
     const slide = document.createElement('div');
-    slide.setAttribute('class', 'swiper-slide movie-card');
+    slide.setAttribute('class', 'movie-card');
 
     const title = document.createElement('a');
     title.setAttribute('class', 'movie-card-title');

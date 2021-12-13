@@ -69,8 +69,12 @@ export default class Router {
   public addFilmsToSlider(films: FilmModel[], filmsManagement: FilmsManagement): void {
     const sliderWrapper = this.root.querySelector('.swiper-wrapper');
     films.forEach((film) => {
+      const slide = document.createElement('div');
+      slide.setAttribute('class', 'swiper-slide');
       const filmCard = new FilmCardComponent().render({ film, filmsManagement });
-      sliderWrapper.append(filmCard);
+
+      slide.append(filmCard);
+      sliderWrapper.append(slide);
     });
   }
 

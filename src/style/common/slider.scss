@@ -29,6 +29,11 @@
   }
 }
 
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
 .swiper-pagination-bullet {
   height: 14px;
   width: 14px;

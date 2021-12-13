@@ -14,7 +14,12 @@ export default class FilmSliderComponent extends Component<{
     wrapper.setAttribute('class', 'swiper-wrapper');
 
     films.forEach((film) => {
-      const slide = new FilmCardComponent().render({ film, filmsManagement });
+      const slide = document.createElement('div');
+      slide.setAttribute('class', 'swiper-slide');
+
+      const filmCard = new FilmCardComponent().render({ film, filmsManagement });
+
+      slide.append(filmCard);
       wrapper.append(slide);
     });
 

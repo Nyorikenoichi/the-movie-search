@@ -1,3 +1,5 @@
+$search-icon-size: 35px;
+
 .search-form{
   display: flex;
   width: 100%;
@@ -22,8 +24,8 @@
 }
 
 .search-clear {
-  width: 35px;
-  height: 35px;
+  width: $search-icon-size;
+  height: $search-icon-size;
   transition: all .2s ease-in-out;
 
   &:hover {
@@ -32,8 +34,8 @@
 }
 
 .search-submit {
-  width: 35px;
-  height: 35px;
+  width: $search-icon-size;
+  height: $search-icon-size;
   transition: all .2s ease-in-out;
 
   &:hover {

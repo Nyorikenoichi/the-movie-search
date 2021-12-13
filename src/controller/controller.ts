@@ -98,7 +98,6 @@ export default class Controller {
     } else {
       this.router.addFilmsToSlider(filmsToAdd.Search, filmsManagement);
     }
-
     this.currentFilmsPage += 1;
   }
 
