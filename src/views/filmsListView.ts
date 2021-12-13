@@ -74,11 +74,11 @@ export default class FilmsListView extends View<{
       slidesPerView: 2,
       spaceBetween: 20,
     },
-    1024: {
+    1000: {
       slidesPerView: 3,
       spaceBetween: 30,
     },
-    1440: {
+    1300: {
       slidesPerView: 4,
       spaceBetween: 40,
     },

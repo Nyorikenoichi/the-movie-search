@@ -8,12 +8,7 @@ export default class SearchLineComponent extends Component<{
   public render({ setSearchRequest }): HTMLElement {
     const form = document.createElement('form');
     form.setAttribute('class', 'search-form');
-    form.addEventListener('submit', (event: Event) => {
-      event.preventDefault();
-      const target = event.target as HTMLFormElement;
-      const searchRequest: string = target.searchInput.value;
-      setSearchRequest(searchRequest);
-    });
+    form.addEventListener('submit', (event: Event) => this.processSubmitEvent(event, setSearchRequest));
 
     const search = document.createElement('input');
     search.setAttribute('type', 'search');
@@ -32,14 +27,24 @@ export default class SearchLineComponent extends Component<{
     const submit = document.createElement('img');
     submit.src = searchIcon;
     submit.setAttribute('class', 'search-submit');
-    submit.addEventListener('click', (event: Event) => {
-      event.preventDefault();
-      const submitEvent = document.createEvent('Event');
-      submitEvent.initEvent('submit', true, true);
-      form.dispatchEvent(submitEvent);
-    });
+    submit.addEventListener('click', (event: Event) => this.createSubmitEvent(event, form));
 
     form.append(search, clear, submit);
     return form;
   }
+
+  private createSubmitEvent(event: Event, form: HTMLFormElement) {
+    event.preventDefault();
+    const submitEvent = document.createEvent('Event');
+    submitEvent.initEvent('submit', true, true);
+    form.dispatchEvent(submitEvent);
+  }
+
+  private processSubmitEvent(event: Event, setSearchRequest: (request: string) => void) {
+    event.preventDefault();
+    const target = event.target as HTMLFormElement;
+    const searchRequest: string = target.searchInput.value;
+    setSearchRequest(searchRequest);
+  }
 }
+

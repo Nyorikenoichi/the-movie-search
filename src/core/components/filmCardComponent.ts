@@ -41,14 +41,7 @@ export default class FilmCardComponent extends Component<{
 
     addToFavoritesButton.setAttribute('class', 'movie-card-add-button');
     addToFavoritesButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      if (filmsManagement.findInFavorites(film)) {
-        filmsManagement.removeFromFavorites(film);
-        addToFavoritesButton.src = heartEmptyIcon;
-      } else {
-        filmsManagement.addToFavorites(film);
-        addToFavoritesButton.src = heartIcon;
-      }
+      this.switchFavorites(event, filmsManagement, film, addToFavoritesButton)
     });
 
     const year = document.createElement('div');
@@ -67,5 +60,16 @@ export default class FilmCardComponent extends Component<{
     infoSecondRow.append(starImg, ratingLabel);
     slide.append(title, poster, infoFirstRow, infoSecondRow);
     return slide;
+  }
+
+  private switchFavorites(event: Event, filmsManagement: FilmsManagement, film: FilmModel, addToFavoritesButton: HTMLImageElement) {
+    event.preventDefault();
+    if (filmsManagement.findInFavorites(film)) {
+      filmsManagement.removeFromFavorites(film);
+      addToFavoritesButton.src = heartEmptyIcon;
+    } else {
+      filmsManagement.addToFavorites(film);
+      addToFavoritesButton.src = heartIcon;
+    }
   }
 }
