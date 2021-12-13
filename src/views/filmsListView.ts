@@ -1,6 +1,6 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
 import View from '../core/view';
-import SectionID from '../core/constants/SectionID';
+import SectionID from '../core/constants/SectionSelectors';
 import FilmModel from '../models/filmModel';
 import FilmsManagement from '../core/interfaces/filmsManagement';
 import FilmSliderComponent from '../core/components/filmSliderComponent';

@@ -1,10 +1,10 @@
 import View from '../core/view';
-import SectionID from '../core/constants/SectionID';
+import SectionSelectors from '../core/constants/SectionSelectors';
 
 export default class ResponseErrorView extends View<{ error: string }> {
   public render({ error }): void {
     if (!this.container) {
-      this.container = this.root.querySelector(SectionID.responseError);
+      this.container = this.root.querySelector(SectionSelectors.responseError);
     }
     this.clear();
 

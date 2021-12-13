@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 import View from '../core/view';
 import FilmListComponent from '../core/components/filmListComponent';
-import SectionID from '../core/constants/SectionID';
+import SectionID from '../core/constants/SectionSelectors';
 import FilmModel from '../models/filmModel';
 import FilmsManagement from '../core/interfaces/filmsManagement';
 

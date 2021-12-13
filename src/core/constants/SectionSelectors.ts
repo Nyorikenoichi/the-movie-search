@@ -1,4 +1,4 @@
-enum SectionID {
+enum SectionSelectors {
   filmsList = '.filmsList',
   overlay = '.overlay',
   favorites = '#favorites',
@@ -9,4 +9,4 @@ enum SectionID {
   responseError = '.responseError',
 }
 
-export default SectionID;
+export default SectionSelectors;

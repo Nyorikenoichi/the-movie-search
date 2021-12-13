@@ -2,6 +2,7 @@ import FilmModel from '../models/filmModel';
 import Router from '../core/router';
 import Service from '../core/services/service';
 import FilmsManagement from '../core/interfaces/filmsManagement';
+import GetFilmsResults from '../core/interfaces/GetFilmsResults';
 import UrlHash from '../core/constants/UrlHash';
 import { deleteFilm, findFilm } from '../core/helpers/films';
 
@@ -74,25 +75,31 @@ export default class Controller {
       this.currentFilmsPage,
     );
     document.dispatchEvent(fetchEnd);
+
     if (filmsToAdd.Error) {
       this.router.renderResponseError(filmsToAdd.Error);
     } else {
-      this.films = this.films.concat(filmsToAdd.Search);
-
-      const filmsManagement: FilmsManagement = {
-        addToFavorites: this.addToFavorites.bind(this),
-        removeFromFavorites: this.removeFromFavorites.bind(this),
-        findInFavorites: this.findInFavorites.bind(this),
-        addFilms: this.addFilms.bind(this),
-      };
-
-      if (this.currentFilmsPage === 1) {
-        this.handleHash();
-      } else {
-        this.router.addFilmsToSlider(filmsToAdd.Search, filmsManagement);
-      }
-      this.currentFilmsPage += 1;
+      this.manageNewFilms(filmsToAdd);
     }
+  }
+
+  private manageNewFilms(filmsToAdd: GetFilmsResults<FilmModel[]>): void {
+    this.films = this.films.concat(filmsToAdd.Search);
+
+    const filmsManagement: FilmsManagement = {
+      addToFavorites: this.addToFavorites.bind(this),
+      removeFromFavorites: this.removeFromFavorites.bind(this),
+      findInFavorites: this.findInFavorites.bind(this),
+      addFilms: this.addFilms.bind(this),
+    };
+
+    if (this.currentFilmsPage === 1) {
+      this.handleHash();
+    } else {
+      this.router.addFilmsToSlider(filmsToAdd.Search, filmsManagement);
+    }
+
+    this.currentFilmsPage += 1;
   }
 
   public async addToFavorites(film: FilmModel): Promise<void> {

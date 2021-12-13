@@ -8,7 +8,7 @@ import Controller from '../controller/controller';
 import FilmsManagement from './interfaces/filmsManagement';
 import FilmModel from '../models/filmModel';
 import ResponseErrorView from '../views/responseErrorView';
-import SectionID from './constants/SectionID';
+import SectionSelectors from './constants/SectionSelectors';
 import heartIcon from '../assets/icons/heart.png';
 import githubIcon from '../assets/icons/github.png';
 import aboutDev from './other/aboutDev';
@@ -103,10 +103,7 @@ export default class Router {
     title.textContent = i18next.t('ProjectTitle');
 
     const openFavorites = document.createElement('img');
-    openFavorites.addEventListener(
-      'mousedown',
-      this.switchFavorites.bind(this),
-    );
+    openFavorites.addEventListener('mousedown', this.switchFavorites.bind(this));
     openFavorites.setAttribute('class', 'switchFavorites');
     openFavorites.src = heartIcon;
 
@@ -164,22 +161,22 @@ export default class Router {
     const filmsListDiv: HTMLElement = document.createElement('div');
     const favoritesDiv: HTMLElement = document.createElement('div');
 
-    headerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.header));
-    overlayDiv.setAttribute('class', this.hashWithoutPoundSign(SectionID.overlay));
-    contentDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.content));
-    footerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.footer));
-    searchDiv.setAttribute('class', this.hashWithoutPoundSign(SectionID.search));
+    headerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionSelectors.header));
+    overlayDiv.setAttribute('class', this.hashWithoutPoundSign(SectionSelectors.overlay));
+    contentDiv.setAttribute('id', this.hashWithoutPoundSign(SectionSelectors.content));
+    footerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionSelectors.footer));
+    searchDiv.setAttribute('class', this.hashWithoutPoundSign(SectionSelectors.search));
     responseErrorDiv.setAttribute(
       'class',
-      this.hashWithoutPoundSign(SectionID.responseError),
+      this.hashWithoutPoundSign(SectionSelectors.responseError),
     );
     filmsListDiv.setAttribute(
       'class',
-      this.hashWithoutPoundSign(SectionID.filmsList),
+      this.hashWithoutPoundSign(SectionSelectors.filmsList),
     );
     favoritesDiv.setAttribute(
       'id',
-      this.hashWithoutPoundSign(SectionID.favorites),
+      this.hashWithoutPoundSign(SectionSelectors.favorites),
     );
 
     overlayDiv.append(favoritesDiv);
