@@ -18,7 +18,7 @@ export default class FilmCardComponent extends Component<{
     title.setAttribute('class', 'movie-card-title');
     title.textContent = film.getTitle();
     title.href = `${Urls.imdbTitle}${film.getImdbID()}`;
-    title.target = "_blank";
+    title.target = '_blank';
 
     const poster = document.createElement('img');
     poster.setAttribute('class', 'movie-card-poster');
@@ -42,7 +42,7 @@ export default class FilmCardComponent extends Component<{
 
     addToFavoritesButton.setAttribute('class', 'movie-card-add-button');
     addToFavoritesButton.addEventListener('click', (event) => {
-      this.switchFavorites(event, filmsManagement, film, addToFavoritesButton)
+      this.switchFavorites(event, filmsManagement, film, addToFavoritesButton);
     });
 
     const year = document.createElement('div');
@@ -63,13 +63,20 @@ export default class FilmCardComponent extends Component<{
     return slide;
   }
 
-  private switchFavorites(event: Event, filmsManagement: FilmsManagement, film: FilmModel, addToFavoritesButton: HTMLImageElement) {
+  private switchFavorites(
+    event: Event,
+    filmsManagement: FilmsManagement,
+    film: FilmModel,
+    addToFavoritesButton: HTMLImageElement,
+  ) {
     event.preventDefault();
     if (filmsManagement.findInFavorites(film)) {
       filmsManagement.removeFromFavorites(film);
+      // eslint-disable-next-line no-param-reassign
       addToFavoritesButton.src = heartEmptyIcon;
     } else {
       filmsManagement.addToFavorites(film);
+      // eslint-disable-next-line no-param-reassign
       addToFavoritesButton.src = heartIcon;
     }
   }

@@ -1,8 +1,8 @@
+import i18next from 'i18next';
 import Component from '../component';
 import FilmModel from '../../models/filmModel';
 import FilmsManagement from '../interfaces/filmsManagement';
 import FilmCardComponent from './filmCardComponent';
-import i18next from 'i18next';
 
 export default class FilmListComponent extends Component<{
   films: FilmModel[];

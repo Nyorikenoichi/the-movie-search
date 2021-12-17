@@ -1,5 +1,4 @@
 import View from '../core/view';
-import SectionSelectors from '../core/constants/SectionSelectors';
 
 export default class ResponseErrorView extends View<{ error: string }> {
   public render({ error }): void {

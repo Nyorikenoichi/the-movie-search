@@ -12,16 +12,15 @@ import initI18next from './localization/i18next';
 import FilmsService from './core/services/filmsService';
 import FilmsLocalStorage from './core/storages/localStorage';
 import FilmsRepository from './core/repos/filmsRepository';
-import loaderComponent from './core/components/loaderComponent';
+import LoaderComponent from './core/components/loaderComponent';
 
 initI18next().then(() => {
   const root: HTMLElement = document.querySelector('#root');
-  const filmsListLoader = new loaderComponent();
-  const filmsListView = new FilmsListView(root, filmsListLoader);
-  const favoritesLoader = new loaderComponent();
-  const favoritesView = new FavoritesView(root, favoritesLoader);
-  const responseErrorLoader = new loaderComponent();
-  const responseErrorView = new ResponseErrorView(root, responseErrorLoader);
+
+  const filmsListsLoader = new LoaderComponent();
+  const filmsListView = new FilmsListView(root, filmsListsLoader);
+  const favoritesView = new FavoritesView(root);
+  const responseErrorView = new ResponseErrorView(root);
   const router = new Router(
     filmsListView,
     favoritesView,

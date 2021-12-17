@@ -33,6 +33,7 @@ export default class SearchLineComponent extends Component<{
 
   private clearSearchLine(event: Event, search: HTMLInputElement) {
     event.preventDefault();
+    // eslint-disable-next-line no-param-reassign
     search.value = '';
   }
 
@@ -43,4 +44,3 @@ export default class SearchLineComponent extends Component<{
     setSearchRequest(searchRequest);
   }
 }
-

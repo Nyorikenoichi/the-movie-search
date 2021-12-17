@@ -72,11 +72,11 @@ export default class Router {
     }
   }
 
-  public showLoader(){
+  public showLoader() {
     this.currentView.showLoader();
   }
 
-  public hideLoader(){
+  public hideLoader() {
     this.currentView.hideLoader();
   }
 
@@ -198,7 +198,7 @@ export default class Router {
     );
 
     this.filmsListView.container = filmsListDiv;
-    this.favoritesView.container =favoritesDiv;
+    this.favoritesView.container = favoritesDiv;
     this.responseErrorView.container = responseErrorDiv;
     this.filmsListView.appendLoader();
 
