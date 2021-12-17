@@ -18,7 +18,7 @@ export default class FilmListComponent extends Component<{
         filmsListComponent.append(listElement);
       });
     } else {
-      filmsListComponent.append(document.createTextNode(i18next.t('No favorites...')));
+      filmsListComponent.append(document.createTextNode(i18next.t('NoFavorites')));
     }
 
     return filmsListComponent;

@@ -12,6 +12,7 @@ import SectionSelectors from './constants/SectionSelectors';
 import heartIcon from '../assets/icons/heart.png';
 import githubIcon from '../assets/icons/github.png';
 import aboutDev from './other/aboutDev';
+import View from './view';
 
 export default class Router {
   private controller: Controller;
@@ -21,6 +22,8 @@ export default class Router {
   private favoritesView: FavoritesView;
 
   private responseErrorView: ResponseErrorView;
+
+  private currentView: View<Object>;
 
   private root: HTMLElement;
 
@@ -34,6 +37,7 @@ export default class Router {
     this.filmsListView = filmsListView;
     this.favoritesView = favoritesView;
     this.responseErrorView = responseErrorView;
+    this.currentView = filmsListView;
   }
 
   public setController(controller: Controller) {
@@ -60,18 +64,20 @@ export default class Router {
     const hash = Router.getHash();
     const urlWithoutHash = Router.getUrlWithoutHash();
     if (hash === UrlHash.main) {
+      this.currentView = this.favoritesView;
       window.location.replace(`${urlWithoutHash}#${UrlHash.favorites}`);
     } else {
+      this.currentView = this.filmsListView;
       window.location.replace(`${urlWithoutHash}#${UrlHash.main}`);
     }
   }
 
   public showLoader(){
-    this.filmsListView.showLoader();
+    this.currentView.showLoader();
   }
 
   public hideLoader(){
-    this.filmsListView.hideLoader();
+    this.currentView.hideLoader();
   }
 
   public addFilmsToSlider(films: FilmModel[], filmsManagement: FilmsManagement): void {

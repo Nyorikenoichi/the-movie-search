@@ -61,8 +61,16 @@
 
 .swiper-button-prev {
   left: -50px;
+
+  @include media-mobile-small {
+    left: -35px;
+  }
 }
 
 .swiper-button-next {
   right: -50px;
+
+  @include media-mobile-small {
+    right: -35px;
+  }
 }

@@ -2,7 +2,7 @@
   "ProjectTitle": "MovieSearch",
   "Search": "Search",
   "Favorites": "Favorites:",
-  "NoFavorites": "NoFavorites",
+  "NoFavorites": "No favorites...",
   "Add": "Add",
   "Remove": "Remove",
   "UnknownError": "Unknown error",

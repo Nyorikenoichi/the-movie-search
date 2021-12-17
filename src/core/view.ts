@@ -1,3 +1,4 @@
+import Component from "./component";
 import LoaderComponent from "./components/loaderComponent";
 
 export default abstract class View<T extends Object> {
@@ -7,7 +8,7 @@ export default abstract class View<T extends Object> {
 
   protected loader: LoaderComponent;
 
-  constructor(root: HTMLElement) {
+  constructor(root: HTMLElement, loader: Component<Object>) {
     this.root = root;
     this.container = null;
     this.loader = new LoaderComponent();

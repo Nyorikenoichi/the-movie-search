@@ -19,25 +19,21 @@ export default class SearchLineComponent extends Component<{
     const clear = document.createElement('img');
     clear.src = clearIcon;
     clear.setAttribute('class', 'search-clear');
-    clear.addEventListener('click', (event: Event) => {
-      event.preventDefault();
-      search.value = '';
-    });
+    clear.addEventListener('click', (event: Event) => this.clearSearchLine(event, search));
 
-    const submit = document.createElement('img');
-    submit.src = searchIcon;
-    submit.setAttribute('class', 'search-submit');
-    submit.addEventListener('click', (event: Event) => this.createSubmitEvent(event, form));
+    const submit = document.createElement('input');
+    submit.setAttribute('type', 'submit');
+    submit.value = '';
+    submit.style.backgroundImage = `url(${searchIcon})`;
+    submit.setAttribute('class', 'search-submit-button');
 
     form.append(search, clear, submit);
     return form;
   }
 
-  private createSubmitEvent(event: Event, form: HTMLFormElement) {
+  private clearSearchLine(event: Event, search: HTMLInputElement) {
     event.preventDefault();
-    const submitEvent = document.createEvent('Event');
-    submitEvent.initEvent('submit', true, true);
-    form.dispatchEvent(submitEvent);
+    search.value = '';
   }
 
   private processSubmitEvent(event: Event, setSearchRequest: (request: string) => void) {

@@ -4,6 +4,7 @@ import FilmsManagement from '../interfaces/filmsManagement';
 import starIcon from '../../assets/icons/star.png';
 import heartIcon from '../../assets/icons/heart.png';
 import heartEmptyIcon from '../../assets/icons/heart_empty.png';
+import Urls from '../constants/URLs';
 
 export default class FilmCardComponent extends Component<{
   film: FilmModel;
@@ -16,7 +17,7 @@ export default class FilmCardComponent extends Component<{
     const title = document.createElement('a');
     title.setAttribute('class', 'movie-card-title');
     title.textContent = film.getTitle();
-    title.href = `https://www.imdb.com/title/${film.getImdbID()}`;
+    title.href = `${Urls.imdbTitle}${film.getImdbID()}`;
     title.target = "_blank";
 
     const poster = document.createElement('img');

@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154ebf74-2b4c-4c71-a8b2-acfb77888ecd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/core/components/loaderComponent.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/constants/URLs.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/components/filmCardComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/filmCardComponent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/components/filmListComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/filmListComponent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/components/searchLineComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/searchLineComponent.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/router.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/view.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/view.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/localization/en/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/localization/en/translation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/common/searchLine.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/searchLine.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/common/slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/slider.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/pages/favoritesOverlay.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/pages/favoritesOverlay.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/favoritesView.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/favoritesView.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/filmsListView.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/filmsListView.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/responseErrorView.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/responseErrorView.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/global/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/global/global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +49,6 @@
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="20Q4DdWMjgHYep7rLIKBGPQ8jyb" />
   <component name="ProjectLevelVcsManager">
@@ -143,7 +142,10 @@
       <workItem from="1639137544434" duration="14247000" />
       <workItem from="1639375232987" duration="7135000" />
       <workItem from="1639400244527" duration="81000" />
-      <workItem from="1639400338552" duration="12445000" />
+      <workItem from="1639400338552" duration="13140000" />
+      <workItem from="1639480506211" duration="888000" />
+      <workItem from="1639723898508" duration="174000" />
+      <workItem from="1639724114501" duration="4477000" />
     </task>
     <servers />
   </component>

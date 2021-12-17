@@ -21,6 +21,10 @@ $search-icon-size: 35px;
   &::-webkit-search-cancel-button,
   &::-webkit-search-results-button,
   &::-webkit-search-results-decoration { display: none; }
+
+  @include media-mobile {
+    padding-left: 10px;
+  }
 }
 
 .search-clear {
@@ -30,9 +34,15 @@ $search-icon-size: 35px;
   @include scale-on-hover;
 }
 
-.search-submit {
+.search-submit-button {
   width: $search-icon-size;
   height: $search-icon-size;
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  background: none no-repeat 0;
+  background-size: 100%;
 
   @include scale-on-hover;
 }
