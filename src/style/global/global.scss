@@ -1,0 +1,98 @@
+html, body{
+  position: relative;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  max-height: 100vh;
+}
+
+#root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  height: 100%;
+  font-family: 'Revalia', serif;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $header-height;
+  padding: 0 100px;
+  background: $background-dark;
+  @include media-mobile {
+    justify-content: space-around;
+    padding: 0 20px;
+
+    .invisibleDiv {
+      display: none;
+    }
+  }
+}
+
+#favorites {
+  position: relative;
+  width: 80%;
+  margin-top: 30px;
+  text-align: center;
+}
+
+#content {
+  position: relative;
+  overflow: hidden;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 160px;
+  background: $background-light;
+
+  @include laptop-l {
+    padding: 0 120px;
+  }
+
+  @include media-laptop {
+    padding: 0 100px;
+  }
+
+  @include media-tablet {
+    padding: 0 80px;
+  }
+
+  @include media-mobile {
+    padding: 0 60px;
+  }
+
+  @include media-mobile-small {
+    padding: 0 30px;
+  }
+}
+
+#footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: $footer-height;
+
+  font-size: 15px;
+  background: $background-dark;
+
+  @include media-mobile {
+    height: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .git-wrapper{
+      width: 100%;
+    }
+  }
+}

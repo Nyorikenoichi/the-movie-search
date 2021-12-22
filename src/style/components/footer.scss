@@ -1,0 +1,17 @@
+.git-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.git-label {
+  color: $text-color;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.git-icon {
+  width: 25px;
+  height: 25px;
+}
+

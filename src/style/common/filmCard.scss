@@ -1,0 +1,76 @@
+$icon-size: 25px;
+$card-width: 200px;
+$poster-height: 300px;
+
+.movie-card {
+  width: $card-width;
+  margin: 10px;;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.movie-card-title {
+  width: 100%;
+  margin-bottom: 15px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: underline;
+  color: $text-color;;
+}
+
+.movie-card-poster {
+  border-radius: 30px;
+  object-fit: cover;
+  width: 100%;
+  height: $poster-height;
+  margin-bottom: 10px;
+}
+
+
+.movie-card-info-row-1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.movie-card-invisible-div {
+  height: $icon-size;
+  width: $icon-size;
+}
+
+.movie-card-year {
+  vertical-align: middle;
+  line-height: 25px;
+  margin-bottom: 10px;
+}
+
+.movie-card-add-button {
+  height: $icon-size;
+  width: $icon-size;
+
+  @include scale-on-hover;
+}
+
+.movie-card-info-row-2{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.movie-card-star {
+  width: $icon-size;
+  height: $icon-size;
+}
+
+.movie-card-rating-label {
+  vertical-align: middle;
+  margin-left: 10px;
+  line-height: 25px;
+  height: 25px;
+}
+

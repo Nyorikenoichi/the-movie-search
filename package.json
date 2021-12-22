@@ -1,0 +1,57 @@
+{
+  "name": "moviesearch",
+  "version": "1.0.0",
+  "description": "project for innowise",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode=development",
+    "prod": "webpack --mode=production",
+    "start": "webpack serve --mode=development",
+    "eslint": "npx eslint --fix ./",
+    "prettier": "npx prettier --write ."
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run eslint"
+    ],
+    "*.{ts,html,css,json,md}": [
+      "npx prettier --write ."
+    ]
+  },
+  "author": "Maksim Maltcev",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nyorikenoichi/the-movie-search.git"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "css-loader": "^6.5.0",
+    "dotenv-webpack": "^7.0.3",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-webpack-plugin": "^3.0.1",
+    "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "node-sass": "^6.0.1",
+    "prettier": "^2.4.1",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "webpack": "^5.60.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-middleware": "^5.2.1",
+    "webpack-dev-server": "^4.4.0",
+    "webpack-hot-middleware": "^2.25.1"
+  },
+  "dependencies": {
+    "i18next": "^21.5.2",
+    "i18next-http-backend": "^1.3.1",
+    "swiper": "^7.3.1"
+  }
+}

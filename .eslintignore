@@ -1,0 +1,7 @@
+dist
+node_modules
+.prettierignore
+webpack
+.eslintrc.js
+.husky
+webpack.config.js

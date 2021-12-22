@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "outDir": "./dist/",
+    "target": "es6",
+    "sourceMap": true,
+    "moduleResolution": "node"
+  },
+  "exclude": ["node_modules"],
+  "include": ["src", "index.d.ts"],
+}
