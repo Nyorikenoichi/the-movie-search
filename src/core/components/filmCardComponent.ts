@@ -72,11 +72,9 @@ export default class FilmCardComponent extends Component<{
     event.preventDefault();
     if (filmsManagement.findInFavorites(film)) {
       filmsManagement.removeFromFavorites(film);
-      // eslint-disable-next-line no-param-reassign
       addToFavoritesButton.src = heartEmptyIcon;
     } else {
       filmsManagement.addToFavorites(film);
-      // eslint-disable-next-line no-param-reassign
       addToFavoritesButton.src = heartIcon;
     }
   }

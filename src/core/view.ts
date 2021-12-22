@@ -1,13 +1,13 @@
-import LoaderComponent from './components/loaderComponent';
+import Loader from "./components/Loader";
 
 export default abstract class View<T extends Object> {
   protected root: HTMLElement;
 
   public container: HTMLElement;
 
-  protected loader: LoaderComponent;
+  protected loader: Loader;
 
-  constructor(root: HTMLElement, loader?: LoaderComponent) {
+  constructor(root: HTMLElement, loader?: Loader) {
     this.root = root;
     this.container = null;
     this.loader = loader;
@@ -22,7 +22,7 @@ export default abstract class View<T extends Object> {
   }
 
   public appendLoader(): void {
-    this.container.append(this.loader.render());
+    this.container.append(this.loader.render({}));
   }
 
   public abstract clear();

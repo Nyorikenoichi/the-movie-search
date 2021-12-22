@@ -1,6 +1,6 @@
-import Component from '../component';
+import Loader from './Loader';
 
-export default class LoaderComponent extends Component<{}> {
+export default class LoaderComponent extends Loader {
   private loader: HTMLElement;
 
   public show(): void {
