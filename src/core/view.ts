@@ -1,11 +1,28 @@
+import Loader from "./components/Loader";
+
 export default abstract class View<T extends Object> {
   protected root: HTMLElement;
 
-  protected container: HTMLElement;
+  public container: HTMLElement;
 
-  constructor(root: HTMLElement) {
+  protected loader: Loader;
+
+  constructor(root: HTMLElement, loader?: Loader) {
     this.root = root;
     this.container = null;
+    this.loader = loader;
+  }
+
+  public showLoader(): void {
+    this.loader.show();
+  }
+
+  public hideLoader(): void {
+    this.loader.hide();
+  }
+
+  public appendLoader(): void {
+    this.container.append(this.loader.render({}));
   }
 
   public abstract clear();

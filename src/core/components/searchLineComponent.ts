@@ -1,36 +1,45 @@
-import i18next from 'i18next';
 import Component from '../component';
-import searchIcon from '../../assets/icons/search.png'
+import searchIcon from '../../assets/icons/search.png';
+import clearIcon from '../../assets/icons/cross.png';
 
 export default class SearchLineComponent extends Component<{
   setSearchRequest: (request: string) => void;
 }> {
   public render({ setSearchRequest }): HTMLElement {
     const form = document.createElement('form');
-    const search = document.createElement('input');
-    const submit = document.createElement('img');
+    form.setAttribute('class', 'search-form');
+    form.addEventListener('submit', (event: Event) => this.processSubmitEvent(event, setSearchRequest));
 
+    const search = document.createElement('input');
     search.setAttribute('type', 'search');
     search.setAttribute('class', 'search-input');
     search.setAttribute('name', 'searchInput');
     search.placeholder = 'search films...';
 
-    submit.src = searchIcon;
-    submit.setAttribute('class', 'search-submit');
-    submit.addEventListener('click', (event: Event) => {
-      const submitEvent = document.createEvent("Event");
-      submitEvent.initEvent("submit", true, true);
-      form.dispatchEvent(submitEvent);
-    });
+    const clear = document.createElement('img');
+    clear.src = clearIcon;
+    clear.setAttribute('class', 'search-clear');
+    clear.addEventListener('click', (event: Event) => this.clearSearchLine(event, search));
 
-    form.setAttribute('class', 'search-form');
-    form.addEventListener('submit', (event: Event) => {
-      event.preventDefault();
-      const target = event.target as HTMLFormElement;
-      const searchRequest: string = target.searchInput.value;
-      setSearchRequest(searchRequest);
-    });
-    form.append(search, submit);
+    const submit = document.createElement('input');
+    submit.setAttribute('type', 'submit');
+    submit.value = '';
+    submit.style.backgroundImage = `url(${searchIcon})`;
+    submit.setAttribute('class', 'search-submit-button');
+
+    form.append(search, clear, submit);
     return form;
+  }
+
+  private clearSearchLine(event: Event, search: HTMLInputElement) {
+    event.preventDefault();
+    search.value = '';
+  }
+
+  private processSubmitEvent(event: Event, setSearchRequest: (request: string) => void) {
+    event.preventDefault();
+    const target = event.target as HTMLFormElement;
+    const searchRequest: string = target.searchInput.value;
+    setSearchRequest(searchRequest);
   }
 }

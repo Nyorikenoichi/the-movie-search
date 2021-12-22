@@ -1,10 +1,10 @@
-import i18next from 'i18next';
 import Component from '../component';
 import FilmModel from '../../models/filmModel';
 import FilmsManagement from '../interfaces/filmsManagement';
 import starIcon from '../../assets/icons/star.png';
 import heartIcon from '../../assets/icons/heart.png';
 import heartEmptyIcon from '../../assets/icons/heart_empty.png';
+import Urls from '../constants/URLs';
 
 export default class FilmCardComponent extends Component<{
   film: FilmModel;
@@ -12,21 +12,26 @@ export default class FilmCardComponent extends Component<{
 }> {
   public render({ film, filmsManagement }): HTMLElement {
     const slide = document.createElement('div');
-    slide.setAttribute('class', 'swiper-slide movie-card');
+    slide.setAttribute('class', 'movie-card');
 
     const title = document.createElement('a');
     title.setAttribute('class', 'movie-card-title');
     title.textContent = film.getTitle();
-    //this stuff is better to see as a variable
-    title.href = `https://www.imdb.com/title/${film.getImdbID()}`;
+    title.href = `${Urls.imdbTitle}${film.getImdbID()}`;
+    title.target = '_blank';
 
     const poster = document.createElement('img');
-    poster.setAttribute('class', 'movie-card-poster')
+    poster.setAttribute('class', 'movie-card-poster');
     poster.src = film.getImgSrc();
 
+    const infoFirstRow = document.createElement('div');
+    infoFirstRow.setAttribute('class', 'movie-card-info-row-1');
 
-    const infoContainer = document.createElement('div');
-    infoContainer.setAttribute('class', 'movie-card-info')
+    const infoSecondRow = document.createElement('div');
+    infoSecondRow.setAttribute('class', 'movie-card-info-row-2');
+
+    const invisibleDiv = document.createElement('div');
+    invisibleDiv.setAttribute('class', 'movie-card-invisible-div');
 
     const addToFavoritesButton = document.createElement('img');
     if (filmsManagement.findInFavorites(film)) {
@@ -37,33 +42,40 @@ export default class FilmCardComponent extends Component<{
 
     addToFavoritesButton.setAttribute('class', 'movie-card-add-button');
     addToFavoritesButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      if (filmsManagement.findInFavorites(film)) {
-        filmsManagement.removeFromFavorites(film);
-        addToFavoritesButton.src = heartEmptyIcon;
-      } else {
-        filmsManagement.addToFavorites(film);
-        addToFavoritesButton.src = heartIcon;
-      }
+      this.switchFavorites(event, filmsManagement, film, addToFavoritesButton);
     });
 
     const year = document.createElement('div');
     year.setAttribute('class', 'movie-card-year');
     year.textContent = film.getYear();
 
-    //undredable!
-    const rating = document.createElement('div');
-    rating.setAttribute('class', 'movie-card-rating');
     const starImg = document.createElement('img');
     starImg.setAttribute('class', 'movie-card-star');
     starImg.src = starIcon;
+
     const ratingLabel = document.createElement('div');
     ratingLabel.setAttribute('class', 'movie-card-rating-label');
-    ratingLabel.textContent = '10.0';
-    rating.append(starImg, ratingLabel);
+    ratingLabel.textContent = film.getRating();
 
-    infoContainer.append(addToFavoritesButton, year, rating);
-    slide.append(title, poster, infoContainer);
+    infoFirstRow.append(invisibleDiv, year, addToFavoritesButton);
+    infoSecondRow.append(starImg, ratingLabel);
+    slide.append(title, poster, infoFirstRow, infoSecondRow);
     return slide;
+  }
+
+  private switchFavorites(
+    event: Event,
+    filmsManagement: FilmsManagement,
+    film: FilmModel,
+    addToFavoritesButton: HTMLImageElement,
+  ) {
+    event.preventDefault();
+    if (filmsManagement.findInFavorites(film)) {
+      filmsManagement.removeFromFavorites(film);
+      addToFavoritesButton.src = heartEmptyIcon;
+    } else {
+      filmsManagement.addToFavorites(film);
+      addToFavoritesButton.src = heartIcon;
+    }
   }
 }

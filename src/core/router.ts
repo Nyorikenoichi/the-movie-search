@@ -3,12 +3,16 @@ import FavoritesView from '../views/favoritesView';
 import FilmsListView from '../views/filmsListView';
 import UrlHash from './constants/UrlHash';
 import SearchLineComponent from './components/searchLineComponent';
+import FilmCardComponent from './components/filmCardComponent';
 import Controller from '../controller/controller';
 import FilmsManagement from './interfaces/filmsManagement';
 import FilmModel from '../models/filmModel';
 import ResponseErrorView from '../views/responseErrorView';
-import SectionID from './constants/SectionID';
+import SectionSelectors from './constants/SectionSelectors';
 import heartIcon from '../assets/icons/heart.png';
+import githubIcon from '../assets/icons/github.png';
+import aboutDev from './other/aboutDev';
+import View from './view';
 
 export default class Router {
   private controller: Controller;
@@ -18,6 +22,8 @@ export default class Router {
   private favoritesView: FavoritesView;
 
   private responseErrorView: ResponseErrorView;
+
+  private currentView: View<Object>;
 
   private root: HTMLElement;
 
@@ -31,6 +37,7 @@ export default class Router {
     this.filmsListView = filmsListView;
     this.favoritesView = favoritesView;
     this.responseErrorView = responseErrorView;
+    this.currentView = filmsListView;
   }
 
   public setController(controller: Controller) {
@@ -57,10 +64,32 @@ export default class Router {
     const hash = Router.getHash();
     const urlWithoutHash = Router.getUrlWithoutHash();
     if (hash === UrlHash.main) {
+      this.currentView = this.favoritesView;
       window.location.replace(`${urlWithoutHash}#${UrlHash.favorites}`);
     } else {
+      this.currentView = this.filmsListView;
       window.location.replace(`${urlWithoutHash}#${UrlHash.main}`);
     }
+  }
+
+  public showLoader() {
+    this.currentView.showLoader();
+  }
+
+  public hideLoader() {
+    this.currentView.hideLoader();
+  }
+
+  public addFilmsToSlider(films: FilmModel[], filmsManagement: FilmsManagement): void {
+    const sliderWrapper = this.root.querySelector('.swiper-wrapper');
+    films.forEach((film) => {
+      const slide = document.createElement('div');
+      slide.setAttribute('class', 'swiper-slide');
+      const filmCard = new FilmCardComponent().render({ film, filmsManagement });
+
+      slide.append(filmCard);
+      sliderWrapper.append(slide);
+    });
   }
 
   public renderMainPage(films: FilmModel[], filmsManagement: FilmsManagement) {
@@ -85,17 +114,15 @@ export default class Router {
     const container: HTMLElement = document.createElement('div');
 
     const invisibleDiv: HTMLElement = document.createElement('div');
-    invisibleDiv.setAttribute('id', 'invisibleDiv');
+    invisibleDiv.setAttribute('class', 'invisibleDiv');
+
     const title: HTMLElement = document.createElement('h1');
-    title.setAttribute('id', 'title');
-    title.textContent = i18next.t('MovieSearch');
+    title.setAttribute('class', 'title');
+    title.textContent = i18next.t('ProjectTitle');
 
     const openFavorites = document.createElement('img');
-    openFavorites.addEventListener(
-      'mousedown',
-      this.switchFavorites.bind(this),
-    );
-    openFavorites.setAttribute('id', 'switchFavorites');
+    openFavorites.addEventListener('mousedown', this.switchFavorites.bind(this));
+    openFavorites.setAttribute('class', 'switchFavorites');
     openFavorites.src = heartIcon;
 
     container.append(invisibleDiv, title, openFavorites);
@@ -117,15 +144,24 @@ export default class Router {
   }
 
   private renderFooter(): HTMLElement {
-    const container: HTMLElement = document.createElement('div');
-    const innowiseLabel = document.createTextNode('Innowise Group');
+    const container = document.createElement('div');
+
+    const innowiseLabel = document.createTextNode(i18next.t('CompanyName'));
+
+    const gitIcon = document.createElement('img');
+    gitIcon.src = githubIcon;
+    gitIcon.setAttribute('class', 'git-icon');
+
     const gitLabel = document.createElement('a');
+    gitLabel.textContent = aboutDev.nickname;
+    gitLabel.href = aboutDev.github;
+    gitLabel.setAttribute('class', 'git-label');
 
-    gitLabel.textContent = 'Nyorikenoichi';
-    gitLabel.href = 'https://github.com/Nyorikenoichi';
-    gitLabel.setAttribute('id', 'gitLabel');
+    const gitWrapper = document.createElement('div');
+    gitWrapper.setAttribute('class', 'git-wrapper');
+    gitWrapper.append(gitIcon, gitLabel);
 
-    container.append(innowiseLabel, gitLabel);
+    container.append(innowiseLabel, gitWrapper);
     return container;
   }
 
@@ -143,23 +179,28 @@ export default class Router {
     const filmsListDiv: HTMLElement = document.createElement('div');
     const favoritesDiv: HTMLElement = document.createElement('div');
 
-    headerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.header));
-    overlayDiv.setAttribute('class', this.hashWithoutPoundSign(SectionID.overlay));
-    contentDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.content));
-    footerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionID.footer));
-    searchDiv.setAttribute('class', this.hashWithoutPoundSign(SectionID.search));
+    headerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionSelectors.header));
+    overlayDiv.setAttribute('class', this.hashWithoutPoundSign(SectionSelectors.overlay));
+    contentDiv.setAttribute('id', this.hashWithoutPoundSign(SectionSelectors.content));
+    footerDiv.setAttribute('id', this.hashWithoutPoundSign(SectionSelectors.footer));
+    searchDiv.setAttribute('class', this.hashWithoutPoundSign(SectionSelectors.search));
     responseErrorDiv.setAttribute(
-      'id',
-      this.hashWithoutPoundSign(SectionID.responseError),
+      'class',
+      this.hashWithoutPoundSign(SectionSelectors.responseError),
     );
     filmsListDiv.setAttribute(
-      'id',
-      this.hashWithoutPoundSign(SectionID.filmsList),
+      'class',
+      this.hashWithoutPoundSign(SectionSelectors.filmsList),
     );
     favoritesDiv.setAttribute(
       'id',
-      this.hashWithoutPoundSign(SectionID.favorites),
+      this.hashWithoutPoundSign(SectionSelectors.favorites),
     );
+
+    this.filmsListView.container = filmsListDiv;
+    this.favoritesView.container = favoritesDiv;
+    this.responseErrorView.container = responseErrorDiv;
+    this.filmsListView.appendLoader();
 
     overlayDiv.append(favoritesDiv);
     contentDiv.append(overlayDiv, searchDiv, responseErrorDiv, filmsListDiv);

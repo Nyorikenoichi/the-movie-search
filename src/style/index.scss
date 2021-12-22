@@ -1,8 +1,12 @@
+@import 'fonts/fontFaces';
 @import 'constants/constants';
+@import 'constants/media';
+@import 'constants/mixins';
 @import 'global/global';
-@import 'components/header';
-@import 'pages/mainPage';
-@import 'pages/favoritesOverlay';
-@import 'components/footer';
 @import 'common/filmCard';
 @import 'common/slider';
+@import 'common/searchLine';
+@import 'components/header';
+@import 'components/footer';
+@import 'pages/mainPage';
+@import 'pages/favoritesOverlay';

@@ -7,13 +7,19 @@ import FilmCardComponent from './filmCardComponent';
 export default class FilmListComponent extends Component<{
   films: FilmModel[];
   filmsManagement: FilmsManagement;
+  containerClass: string;
 }> {
-  public render({ films, filmsManagement }): HTMLElement {
-    const filmsListComponent: HTMLElement = document.createElement('ul');
-    films.forEach((film) => {
-      const listElement: HTMLElement = new FilmCardComponent().render({ film, filmsManagement });
-      filmsListComponent.append(listElement);
-    });
+  public render({ films, filmsManagement, containerClass }): HTMLElement {
+    const filmsListComponent: HTMLElement = document.createElement('div');
+    filmsListComponent.setAttribute('class', containerClass);
+    if (films.length !== 0) {
+      films.forEach((film) => {
+        const listElement: HTMLElement = new FilmCardComponent().render({ film, filmsManagement });
+        filmsListComponent.append(listElement);
+      });
+    } else {
+      filmsListComponent.append(document.createTextNode(i18next.t('NoFavorites')));
+    }
 
     return filmsListComponent;
   }
