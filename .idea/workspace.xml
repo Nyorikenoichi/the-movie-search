@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154ebf74-2b4c-4c71-a8b2-acfb77888ecd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/core/components/Loader.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/components/filmCardComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/filmCardComponent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/components/loaderComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/loaderComponent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/components/searchLineComponent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/searchLineComponent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/view.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/view.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +137,7 @@
       <workItem from="1639724114501" duration="5852000" />
       <workItem from="1639737911195" duration="1118000" />
       <workItem from="1640176159320" duration="1234000" />
+      <workItem from="1640179463617" duration="48000" />
     </task>
     <servers />
   </component>
