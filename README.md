@@ -1,6 +1,6 @@
 # the-movie-search
 
-Project №1 for innowise internship
+Typescript web app
 
 How to build: 
   1) Clone repository using git clone
