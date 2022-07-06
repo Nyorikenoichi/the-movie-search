@@ -8,3 +8,6 @@ How to build:
   3) Type "npm install" in local terminal to install node modules
   4) Type "npm run build" to build project. Files will be settled in "dist" folder
   5) Type "npm run start" to launch app in local host
+
+Preview:
+  https://nyorikenoichi-movie-search.netlify.app/
